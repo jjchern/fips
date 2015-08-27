@@ -28,3 +28,14 @@ Install from github with
 ```r
 devtools::install_github("jjchern/fips").
 ```
+
+# Usage
+
+```{r}
+library(fips)
+fips
+
+# Save as Stata .dta file
+foreign::write.dta(fips, "fips.dta")
+```
+
