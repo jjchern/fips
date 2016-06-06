@@ -15,7 +15,8 @@ Installation
 Install from github with
 
 ``` r
-devtools::install_github("jjchern/fips").
+# install.package("devtools")
+devtools::install_github("jjchern/fips")
 ```
 
 Usage

@@ -24,7 +24,8 @@ This package contains a dataset `fips` that has three variables:
 
 Install from github with 
 ```r
-devtools::install_github("jjchern/fips").
+# install.package("devtools")
+devtools::install_github("jjchern/fips")
 ```
 
 # Usage
