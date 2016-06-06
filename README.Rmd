@@ -35,6 +35,6 @@ library(fips)
 fips
 
 # Save as Stata .dta file
-foreign::write.dta(fips, "fips.dta")
+haven::write_dta(fips, "fips.dta")
 ```
 

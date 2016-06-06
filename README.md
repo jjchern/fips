@@ -79,5 +79,5 @@ fips
 #> 51   56   WY              Wyoming
 
 # Save as Stata .dta file
-foreign::write.dta(fips, "fips.dta")
+haven::write_dta(fips, "fips.dta")
 ```
