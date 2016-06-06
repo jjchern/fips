@@ -1,22 +1,18 @@
-library(dplyr)
+library(dplyr, warn.conflicts = FALSE)
 
-if (!file.exists("data-raw/fips.csv")) {
-  download.file(url = "http://www2.census.gov/geo/docs/reference/state.txt",
-                destfile = "data-raw/fips.txt",
-                quiet = TRUE)
-}
+# FIPS codes for US states -------------------------------------------------
 
-raw = read.table(file = "data-raw/fips.txt",
-                 header = TRUE,
-                 sep = "|",
-                 stringsAsFactors = FALSE)
+url = "http://www2.census.gov/geo/docs/reference/state.txt"
+fil = "data-raw/fips.txt"
+if (!file.exists(fil)) download.file(url, fil, quiet = TRUE)
 
-fips <- raw %>%
-  tbl_df() %>%
-  select(fips = STATE,
-         usps = STUSAB,
-         state = STATE_NAME) %>%
+readr::read_delim(fil, delim = "|") %>%
+  select(
+    fips = STATE,
+    usps = STUSAB,
+    state = STATE_NAME
+  ) %>%
   filter(fips <= 56) %>%
-  arrange(fips)
+  arrange(fips) -> state -> fips
 
-save(fips, file = "data/fips.rdata")
+devtools::use_data(state, fips)
