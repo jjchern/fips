@@ -3,6 +3,8 @@
 About
 =====
 
+[![Travis-CI Build Status](https://travis-ci.org/jjchern/fips.svg?branch=master)](https://travis-ci.org/jjchern/fips)
+
 `fips` is an R data package. It contains state-level and 2010 county-level FIPS code from U.S. Census.
 
 -   [Source for State FIPS Code](https://www.census.gov/geo/reference/ansi_statetables.html)
