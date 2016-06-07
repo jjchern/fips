@@ -1,13 +1,12 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-FIPS Codes for the States and the District of Columbia
-======================================================
+About
+=====
 
-This package contains a dataset `fips` that has three variables:
+`fips` is an R data package. It contains state-level and 2010 county-level FIPS code from U.S. Census.
 
--   `fips`: FIPS State Code
--   `usps`: Official United States Postal Service (USPS) Code
--   `state`: State Name
+-   [Source for State FIPS Code](https://www.census.gov/geo/reference/ansi_statetables.html)
+-   [Source for County FIPS Code](https://www.census.gov/geo/reference/codes/cou.html)
 
 Installation
 ============
