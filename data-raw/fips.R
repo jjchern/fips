@@ -35,7 +35,7 @@ readr::read_csv(fil_cty, col_names = FALSE) %>%
     cty_short = county,
     cty_short = stringr::str_replace_all(
       cty_short,
-      "County|Borough|City and Borough|Census Area|Municipality|Municipio|Parish|city|City",
+      " County| Borough| City and Borough| Census Area| Municipality| Municipio| Parish| city| City",
       ""
     )
   ) -> county
@@ -44,7 +44,7 @@ fips %>%
   select(usps, state) %>%
   right_join(county, by = "usps") -> county
 
-devtools::use_data(county)
+devtools::use_data(county, overwrite = TRUE)
 
 # Other Special Short Names
 # county %>% filter(!stringr::str_detect(county, "County|Borough|City and Borough|Census Area|Municipality|Municipio|Parish|city|City"))
