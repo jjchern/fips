@@ -18,3 +18,33 @@ fips %>% filter(fips <= 56) -> state
 
 devtools::use_data(state, fips, overwrite = TRUE)
 
+# FIPS codes for US counties ----------------------------------------------
+
+url_cty = "http://www2.census.gov/geo/docs/reference/codes/files/national_county.txt"
+fil_cty = "data-raw/county.txt"
+if (!file.exists(fil_cty)) download.file(url_cty, fil_cty)
+
+readr::read_csv(fil_cty, col_names = FALSE) %>%
+  tidyr::unite(X23, X2, X3, sep = "") %>%
+  select(
+    usps  = X1,
+    fips   = X23,
+    county = X4
+  ) %>%
+  mutate(
+    cty_short = county,
+    cty_short = stringr::str_replace_all(
+      cty_short,
+      "County|Borough|City and Borough|Census Area|Municipality|Municipio|Parish|city|City",
+      ""
+    )
+  ) -> county
+
+fips %>%
+  select(usps, state) %>%
+  right_join(county, by = "usps") -> county
+
+devtools::use_data(county)
+
+# Other Special Short Names
+# county %>% filter(!stringr::str_detect(county, "County|Borough|City and Borough|Census Area|Municipality|Municipio|Parish|city|City"))
