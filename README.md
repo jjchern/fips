@@ -29,7 +29,7 @@ fips::state
 #> Source: local data frame [51 x 3]
 #> 
 #>     fips  usps                state
-#>    <chr> <chr>                <chr>
+#>    (chr) (chr)                (chr)
 #> 1     01    AL              Alabama
 #> 2     02    AK               Alaska
 #> 3     04    AZ              Arizona
@@ -47,7 +47,7 @@ fips::fips
 #> Source: local data frame [57 x 3]
 #> 
 #>     fips  usps                state
-#>    <chr> <chr>                <chr>
+#>    (chr) (chr)                (chr)
 #> 1     01    AL              Alabama
 #> 2     02    AK               Alaska
 #> 3     04    AZ              Arizona
@@ -63,7 +63,7 @@ fips::fips %>% tail(10)
 #> Source: local data frame [10 x 3]
 #> 
 #>     fips  usps                       state
-#>    <chr> <chr>                       <chr>
+#>    (chr) (chr)                       (chr)
 #> 1     53    WA                  Washington
 #> 2     54    WV               West Virginia
 #> 3     55    WI                   Wisconsin
@@ -77,21 +77,21 @@ fips::fips %>% tail(10)
 
 # 2010 FIPS code for counties
 fips::county
-#> Source: local data frame [3,235 x 5]
+#> Source: local data frame [3,235 x 4]
 #> 
-#>     usps   state  fips          county cty_short
-#>    <chr>   <chr> <chr>           <chr>     <chr>
-#> 1     AL Alabama 01001  Autauga County  Autauga 
-#> 2     AL Alabama 01003  Baldwin County  Baldwin 
-#> 3     AL Alabama 01005  Barbour County  Barbour 
-#> 4     AL Alabama 01007     Bibb County     Bibb 
-#> 5     AL Alabama 01009   Blount County   Blount 
-#> 6     AL Alabama 01011  Bullock County  Bullock 
-#> 7     AL Alabama 01013   Butler County   Butler 
-#> 8     AL Alabama 01015  Calhoun County  Calhoun 
-#> 9     AL Alabama 01017 Chambers County Chambers 
-#> 10    AL Alabama 01019 Cherokee County Cherokee 
-#> ..   ...     ...   ...             ...       ...
+#>     usps   state  fips          county
+#>    (chr)   (chr) (chr)           (chr)
+#> 1     AL Alabama 01001  Autauga County
+#> 2     AL Alabama 01003  Baldwin County
+#> 3     AL Alabama 01005  Barbour County
+#> 4     AL Alabama 01007     Bibb County
+#> 5     AL Alabama 01009   Blount County
+#> 6     AL Alabama 01011  Bullock County
+#> 7     AL Alabama 01013   Butler County
+#> 8     AL Alabama 01015  Calhoun County
+#> 9     AL Alabama 01017 Chambers County
+#> 10    AL Alabama 01019 Cherokee County
+#> ..   ...     ...   ...             ...
 
 # Save as Stata .dta file
 haven::write_dta(fips::state, "statefip.dta")
