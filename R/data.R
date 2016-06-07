@@ -40,4 +40,4 @@
 #' }
 #'
 #' @source \url{https://www.census.gov/geo/reference/codes/cou.html}
-"state"
+"county"

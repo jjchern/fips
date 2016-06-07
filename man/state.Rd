@@ -12,18 +12,12 @@
 }}
 \source{
 \url{https://www.census.gov/geo/reference/ansi_statetables.html}
-
-\url{https://www.census.gov/geo/reference/codes/cou.html}
 }
 \usage{
-state
-
 state
 }
 \description{
 FIPS Codes for the 50 States and the District of Columbia.
-
-2010 FIPS Codes for Counties and County Equivalent Entities.
 }
 \keyword{datasets}
 
