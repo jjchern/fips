@@ -4,12 +4,7 @@
 \name{fips}
 \alias{fips}
 \title{State-level FIPS Code}
-\format{A data frame with three variables:
-\describe{
-\item{fips}{FIPS State Code}
-\item{usps}{Official United States Postal Service (USPS) Code}
-\item{state}{State Name}
-}}
+\format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 57 rows and 3 columns.}
 \source{
 \url{https://www.census.gov/geo/reference/ansi_statetables.html}
 }

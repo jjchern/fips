@@ -4,14 +4,7 @@
 \name{county}
 \alias{county}
 \title{County-level FIPS Code}
-\format{A data frame with five variables:
-\describe{
-\item{usps}{Official United States Postal Service (USPS) Code}
-\item{state}{State Name}
-\item{fips}{2010 FIPS County Code}
-\item{county}{Full County Name}
-\item{cty_short}{Short County Name}
-}}
+\format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 3235 rows and 4 columns.}
 \source{
 \url{https://www.census.gov/geo/reference/codes/cou.html}
 }
