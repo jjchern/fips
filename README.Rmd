@@ -21,7 +21,6 @@ knitr::opts_chunk$set(
 
 # Installation
 
-Install from github with 
 ```r
 # install.package("devtools")
 devtools::install_github("jjchern/fips")
@@ -30,10 +29,19 @@ devtools::install_github("jjchern/fips")
 # Usage
 
 ```{r}
-library(fips)
-fips
+library(dplyr, warn.conflicts = FALSE)
+
+# 51 state-level FIPS code
+fips::state
+
+# fips::fips includes FIPS code for other outlying areas
+fips::fips 
+fips::fips %>% tail(10)
+
+# 2010 FIPS code for counties
+fips::county
 
 # Save as Stata .dta file
-haven::write_dta(fips, "fips.dta")
+haven::write_dta(fips::state, "statefip.dta")
 ```
 
