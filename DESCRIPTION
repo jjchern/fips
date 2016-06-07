@@ -1,10 +1,14 @@
 Package: fips
 Type: Package
-Title: U.S. FIPS State Code and Official United States Postal Service (USPS) Code
+Title: FIPS Code for U.S. States and Counties.
+    Code
 Version: 0.1
 Date: 2015-08-27
 Authors@R: 'JJ Chen <jiajia.chern@gmail.com> [aut,cre]'
-Description: This package constains U.S. FIPS State Code and Official United States Postal Service (USPS) Code.
+Description: Data for U.S. FIPS State and County Code.
 License: CC0
 LazyData: TRUE
+Depends: R (>= 2.10)
 URL: http://github.com/jjchern/fips
+BugReports: https://github.com/jjchern/fips/issues
+RoxygenNote: 5.0.1
