@@ -26,19 +26,7 @@ if (!file.exists(fil_cty)) download.file(url_cty, fil_cty)
 
 readr::read_csv(fil_cty, col_names = FALSE) %>%
   tidyr::unite(X23, X2, X3, sep = "") %>%
-  select(
-    usps  = X1,
-    fips   = X23,
-    county = X4
-  ) %>%
-  mutate(
-    cty_short = county,
-    cty_short = stringr::str_replace_all(
-      cty_short,
-      " County| Borough| City and Borough| Census Area| Municipality| Municipio| Parish| city| City",
-      ""
-    )
-  ) -> county
+  select(usps  = X1, fips   = X23, county = X4) -> county
 
 fips %>%
   select(usps, state) %>%
