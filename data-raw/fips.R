@@ -12,7 +12,9 @@ readr::read_delim(fil, delim = "|") %>%
     usps = STUSAB,
     state = STATE_NAME
   ) %>%
-  filter(fips <= 56) %>%
-  arrange(fips) -> state -> fips
+  arrange(fips) -> fips
 
-devtools::use_data(state, fips)
+fips %>% filter(fips <= 56) -> state
+
+devtools::use_data(state, fips, overwrite = TRUE)
+

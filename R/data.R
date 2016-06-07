@@ -1,6 +1,6 @@
 #' State-level FIPS Code
 #'
-#' FIPS Codes for the States and the District of Columbia form Census.
+#' FIPS Codes for the 50 states, the District of Columbia, and the Outlying Areas of the United States.
 #'
 #' @format A data frame with three variables:
 #' \describe{
@@ -14,7 +14,7 @@
 
 #' State-level FIPS Code
 #'
-#' FIPS Codes for the States and the District of Columbia form Census.
+#' FIPS Codes for the 50 States and the District of Columbia.
 #'
 #' @format A data frame with three variables:
 #' \describe{
