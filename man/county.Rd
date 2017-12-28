@@ -15,4 +15,3 @@ county
 2010 FIPS Codes for Counties and County Equivalent Entities.
 }
 \keyword{datasets}
-

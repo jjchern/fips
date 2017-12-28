@@ -15,4 +15,3 @@ state
 FIPS Codes for the 50 States and the District of Columbia.
 }
 \keyword{datasets}
-

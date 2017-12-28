@@ -15,4 +15,3 @@ fips
 FIPS Codes for the 50 states, the District of Columbia, and the Outlying Areas of the United States.
 }
 \keyword{datasets}
-

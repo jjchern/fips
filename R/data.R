@@ -18,3 +18,10 @@
 #'
 #' @source \url{https://www.census.gov/geo/reference/codes/cou.html}
 "county"
+
+#' NCHS Urban-Rural Codes
+#'
+#' 2013, 2006, and 1990 NCHS Urban-Rural Classification Scheme for Counties.
+#'
+#' @source \url{https://www.cdc.gov/nchs/data_access/urban_rural.htm}
+"nchs_urc"
