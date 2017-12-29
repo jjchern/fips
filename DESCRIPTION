@@ -1,14 +1,12 @@
 Package: fips
 Type: Package
 Title: FIPS Code for U.S. States and Counties.
-    Code
-Version: 0.1
-Date: 2015-08-27
-Authors@R: 'JJ Chen <jiajia.chern@gmail.com> [aut,cre]'
-Description: Data for U.S. FIPS State and County Code.
+Version: 0.0.1
+Authors@R: person("JJ", "Chen", , "jiajia.chern@gmail.com", c("aut", "cre"))
+Description: Data for U.S. FIPS State and County Code and related classifications.
 License: CC0
 LazyData: TRUE
 Depends: R (>= 2.10)
 URL: http://github.com/jjchern/fips
 BugReports: https://github.com/jjchern/fips/issues
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1

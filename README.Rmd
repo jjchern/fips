@@ -6,20 +6,28 @@ output: github_document
 
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "README-"
+    cache = TRUE,
+    collapse = TRUE,
+    comment = "#>",
+    fig.path = "README-files/"
 )
 ```
 
 # About
 
 [![Travis-CI Build Status](https://travis-ci.org/jjchern/fips.svg?branch=master)](https://travis-ci.org/jjchern/fips)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/jjchern/fips?branch=master&svg=true)](https://ci.appveyor.com/project/jjchern/fips)
 
-`fips` is an R data package. It contains state-level and 2010 county-level FIPS code from U.S. Census.
+`fips` is an R data package. The following datasets are available:
 
-- [Source for State FIPS Code](https://www.census.gov/geo/reference/ansi_statetables.html)
-- [Source for County FIPS Code](https://www.census.gov/geo/reference/codes/cou.html)
+- `fips::fips` and `fips::state`: 
+    - State-level FIPS codes. [(Source)](https://www.census.gov/geo/reference/ansi_statetables.html)
+
+- `fips::county`: 
+    - 2010 county-level FIPS codes. [(Source)](https://www.census.gov/geo/reference/codes/cou.html)
+    
+- `fips::nchs_urc`: 
+    - NCHS Urban-Rural Classification Scheme for Counties. [(Source)](https://www.cdc.gov/nchs/data_access/urban_rural.htm)
 
 # Installation
 
@@ -30,20 +38,89 @@ devtools::install_github("jjchern/fips")
 
 # Usage
 
-```{r}
-library(dplyr, warn.conflicts = FALSE)
+## State-level FIPS code
 
-# 51 state-level FIPS code
+```{r, warning=FALSE, message=FALSE}
+library(tidyverse)
 fips::state
 
 # fips::fips includes FIPS code for other outlying areas
 fips::fips 
 fips::fips %>% tail(10)
-
-# 2010 FIPS code for counties
-fips::county
-
-# Save as Stata .dta file
-haven::write_dta(fips::state, "statefip.dta")
 ```
+
+## 2010 FIPS code for counties
+
+```{r}
+fips::county
+```
+
+## NCHS Urban Rural Codes
+
+```{r}
+fips::nchs_urc
+```
+
+```{r nchs_urc_2013, echo=FALSE, warning=FALSE, message=FALSE}
+
+right_join(usmapdata::county, fips::nchs_urc,
+           by = c("id" = "fips")) %>% 
+    haven::as_factor() -> nchs_urc
+
+ggplot() +
+    geom_map(data = nchs_urc, map = nchs_urc,
+             aes(x = long, y = lat, map_id = id, fill = code2013),
+             colour = alpha("white", 0.1), size = 0.2) +
+    geom_map(data = usmapdata::state, map = usmapdata::state,
+             aes(x = long, y = lat, map_id = id),
+             colour = alpha("white", 0.75), fill = "NA") +        
+    coord_map("albers", lat0 = 30, lat1 = 40) +
+    viridis::scale_fill_viridis(option = "B", discrete = TRUE) +
+    ggtitle("2013 NCHS Urban-Rural Classification Scheme for Counties") +
+    ggthemes::theme_map() +
+    theme(legend.position = c(.82, .3),
+          legend.title=element_blank(), 
+          plot.title = element_text(hjust = 0.5))
+```
+
+```{r nchs_urc_2006, echo=FALSE, warning=FALSE, message=FALSE}
+
+ggplot() +
+    geom_map(data = nchs_urc, map = nchs_urc,
+             aes(x = long, y = lat, map_id = id, fill = code2006),
+             colour = alpha("white", 0.1), size = 0.2) +
+    geom_map(data = usmapdata::state, map = usmapdata::state,
+             aes(x = long, y = lat, map_id = id),
+             colour = alpha("white", 0.75), fill = "NA") + 
+    coord_map("albers", lat0 = 30, lat1 = 40) +
+    viridis::scale_fill_viridis(option = "A", discrete = TRUE) +
+    ggtitle("2006 NCHS Urban-Rural Classification Scheme for Counties") +
+    ggthemes::theme_map() +
+    theme(legend.position = c(.82, .3),
+          legend.title=element_blank(), 
+          plot.title = element_text(hjust = 0.5))
+```
+
+```{r nchs_urc_1990, echo=FALSE, warning=FALSE, message=FALSE}
+
+nchs_urc %>% 
+    filter(!is.na(code1990)) %>% 
+    ggplot() +
+    geom_map(map = nchs_urc,
+             aes(x = long, y = lat, map_id = id, fill = code1990),
+             colour = alpha("white", 0.1), size = 0.2) +
+    geom_map(data = usmapdata::state, map = usmapdata::state,
+             aes(x = long, y = lat, map_id = id),
+             colour = alpha("white", 0.75), fill = "NA") +        
+    coord_map("albers", lat0 = 30, lat1 = 40) +
+    viridis::scale_fill_viridis(option = "C", discrete = TRUE) +
+    ggtitle("1990 NCHS Urban-Rural Classification Scheme for Counties") +
+    ggthemes::theme_map() +
+    theme(legend.position = c(.82, .3),
+          legend.title=element_blank(), 
+          plot.title = element_text(hjust = 0.5))
+```
+
+
+
 

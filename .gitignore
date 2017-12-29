@@ -2,3 +2,5 @@
 .Rhistory
 .RData
 *dta
+data-raw/*txt
+data-raw/*sas7bdat
