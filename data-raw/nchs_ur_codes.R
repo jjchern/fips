@@ -20,24 +20,24 @@ haven::read_sas(fil) %>%
         "Large fringe metro" = 2,
         "Medium metro" = 3,
         "Small metro" = 4,
-        "Micropolitan (nonmetropolitan)" = 5,
-        "Noncore (nonmetropolitan)" = 6
+        "Micropolitan" = 5,
+        "Noncore" = 6
     )) %>%
     set_value_labels(code2006 = c(
         "Large central metro" = 1,
         "Large fringe metro" = 2,
         "Medium metro" = 3,
         "Small metro" = 4,
-        "Micropolitan (nonmetropolitan)" = 5,
-        "Noncore (nonmetropolitan)" = 6
+        "Micropolitan" = 5,
+        "Noncore" = 6
     )) %>%
     set_value_labels(code1990 = c(
         "Large central metro" = 1,
         "Large fringe metro" = 2,
         "Medium metro" = 3,
         "Small metro" = 4,
-        "With a city of 10,000 or more (nonmetropolitan)" = 5,
-        "Without a city of 10,00 or more (nonmetropolitan)" = 6
+        "W/ a city of 10,000+" = 5,
+        "W/o a city of 10,000+" = 6
     )) %>%
     print() -> nchs_urc
 
