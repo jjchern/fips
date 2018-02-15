@@ -13,6 +13,8 @@ About
     -   2010 county-level FIPS codes. [(Source)](https://www.census.gov/geo/reference/codes/cou.html)
 -   `fips::nchs_urc`:
     -   NCHS Urban-Rural Classification Scheme for Counties. [(Source)](https://www.cdc.gov/nchs/data_access/urban_rural.htm)
+-   `fips::bea_region`:
+    -   BEA Region codes. [(Source)](https://www.bea.gov/regional/docs/regions.cfm)
 
 Installation
 ============
@@ -20,6 +22,9 @@ Installation
 ``` r
 # install.package("devtools")
 devtools::install_github("jjchern/fips")
+
+# To uninstall the package, use:
+# remove.packages("fips")
 ```
 
 Usage
@@ -99,26 +104,49 @@ fips::county
 #> # ... with 3,225 more rows
 ```
 
+BEA Region codes for states
+---------------------------
+
+``` r
+fips::bea_region
+#> # A tibble: 51 x 7
+#>    fips  usps  state  short_region_na… region_code region_name region_abbr
+#>    <chr> <chr> <chr>  <chr>                  <int> <chr>       <chr>      
+#>  1 09    CT    Conne… New England                1 New Englan… NENG       
+#>  2 23    ME    Maine  New England                1 New Englan… NENG       
+#>  3 25    MA    Massa… New England                1 New Englan… NENG       
+#>  4 33    NH    New H… New England                1 New Englan… NENG       
+#>  5 44    RI    Rhode… New England                1 New Englan… NENG       
+#>  6 50    VT    Vermo… New England                1 New Englan… NENG       
+#>  7 10    DE    Delaw… Mideast                    2 Mideast Re… MEST       
+#>  8 11    DC    Distr… Mideast                    2 Mideast Re… MEST       
+#>  9 24    MD    Maryl… Mideast                    2 Mideast Re… MEST       
+#> 10 34    NJ    New J… Mideast                    2 Mideast Re… MEST       
+#> # ... with 41 more rows
+```
+
+![](README-files/bea_regions-1.png)
+
 NCHS Urban Rural Codes
 ----------------------
 
 ``` r
 fips::nchs_urc
 #> # A tibble: 3,147 x 10
-#>     usps statefip  fips          county  code2013  code2006  code1990
-#>    <chr>    <chr> <chr>           <chr> <dbl+lbl> <dbl+lbl> <dbl+lbl>
-#>  1    AL       01 01001  Autauga County         3         3         3
-#>  2    AL       01 01003  Baldwin County         4         5         3
-#>  3    AL       01 01005  Barbour County         6         5         5
-#>  4    AL       01 01007     Bibb County         2         2         6
-#>  5    AL       01 01009   Blount County         2         2         3
-#>  6    AL       01 01011  Bullock County         6         6         6
-#>  7    AL       01 01013   Butler County         6         6         6
-#>  8    AL       01 01015  Calhoun County         4         4         4
-#>  9    AL       01 01017 Chambers County         5         5         6
-#> 10    AL       01 01019 Cherokee County         6         6         6
-#> # ... with 3,137 more rows, and 3 more variables: cbsatitle <chr>,
-#> #   cbsapop <dbl>, ctypop <dbl>
+#>    usps  statefip fips  county   code2013  code2006 code1990 cbsatitle    
+#>    <chr> <chr>    <chr> <chr>    <dbl+lbl> <dbl+lb> <dbl+lb> <chr>        
+#>  1 AL    01       01001 Autauga… 3         3        3        Montgomery, …
+#>  2 AL    01       01003 Baldwin… 4         5        3        Daphne-Fairh…
+#>  3 AL    01       01005 Barbour… 6         5        5        ""           
+#>  4 AL    01       01007 Bibb Co… 2         2        6        Birmingham-H…
+#>  5 AL    01       01009 Blount … 2         2        3        Birmingham-H…
+#>  6 AL    01       01011 Bullock… 6         6        6        ""           
+#>  7 AL    01       01013 Butler … 6         6        6        ""           
+#>  8 AL    01       01015 Calhoun… 4         4        4        Anniston-Oxf…
+#>  9 AL    01       01017 Chamber… 5         5        6        Valley, AL   
+#> 10 AL    01       01019 Cheroke… 6         6        6        ""           
+#> # ... with 3,137 more rows, and 2 more variables: cbsapop <dbl>,
+#> #   ctypop <dbl>
 ```
 
 ![](README-files/nchs_urc_2013-1.png)

@@ -28,12 +28,18 @@ knitr::opts_chunk$set(
     
 - `fips::nchs_urc`: 
     - NCHS Urban-Rural Classification Scheme for Counties. [(Source)](https://www.cdc.gov/nchs/data_access/urban_rural.htm)
+    
+- `fips::bea_region`:
+    - BEA Region codes. [(Source)](https://www.bea.gov/regional/docs/regions.cfm)
 
 # Installation
 
 ```r
 # install.package("devtools")
 devtools::install_github("jjchern/fips")
+
+# To uninstall the package, use:
+# remove.packages("fips")
 ```
 
 # Usage
@@ -53,6 +59,34 @@ fips::fips %>% tail(10)
 
 ```{r}
 fips::county
+```
+
+## BEA Region codes for states
+
+```{r}
+fips::bea_region
+```
+
+```{r bea_regions, echo=FALSE, warning=FALSE, message=FALSE}
+
+right_join(usmapdata::state, fips::bea_region,
+           by = c("id" = "fips")) %>% 
+    haven::as_factor() -> bea_region
+
+ggplot() +
+    geom_map(data = bea_region, map = bea_region,
+             aes(x = long, y = lat, map_id = id, fill = short_region_name),
+             colour = alpha("white", 0.1), size = 0.2) +
+    geom_map(data = usmapdata::state, map = usmapdata::state,
+             aes(x = long, y = lat, map_id = id),
+             colour = alpha("white", 0.75), fill = "NA") +        
+    coord_map("albers", lat0 = 30, lat1 = 40) +
+    viridis::scale_fill_viridis(option = "C", discrete = TRUE) +
+    ggtitle("Component State for BEA Regions") +
+    ggthemes::theme_map() +
+    theme(legend.position = c(.82, .3),
+          legend.title=element_blank(), 
+          plot.title = element_text(hjust = 0.5))
 ```
 
 ## NCHS Urban Rural Codes

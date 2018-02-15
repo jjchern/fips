@@ -92,13 +92,23 @@
 </li>
 </ul>
 </li>
+<li>
+<code><a href="http://www.rdocumentation.org/packages/fips/topics/bea_region">fips::bea_region</a></code>:
+<ul>
+<li>BEA Region codes. <a href="https://www.bea.gov/regional/docs/regions.cfm">(Source)</a>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 <div id="installation" class="section level1">
 <h1 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h1>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.package("devtools")</span>
-devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"jjchern/fips"</span>)</code></pre></div>
+devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"jjchern/fips"</span>)
+
+<span class="co"># To uninstall the package, use:</span>
+<span class="co"># remove.packages("fips")</span></code></pre></div>
 </div>
 <div id="usage" class="section level1">
 <h1 class="hasAnchor">
@@ -173,25 +183,45 @@ fips<span class="op">::</span>fips <span class="op">%&gt;%</span><span class="st
 <span class="co">#&gt; 10    AL Alabama 01019 Cherokee County</span>
 <span class="co">#&gt; # ... with 3,225 more rows</span></code></pre></div>
 </div>
+<div id="bea-region-codes-for-states" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bea-region-codes-for-states" class="anchor"></a>BEA Region codes for states</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fips<span class="op">::</span>bea_region
+<span class="co">#&gt; # A tibble: 51 x 7</span>
+<span class="co">#&gt;    fips  usps  state  short_region_na… region_code region_name region_abbr</span>
+<span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;                  &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;      </span>
+<span class="co">#&gt;  1 09    CT    Conne… New England                1 New Englan… NENG       </span>
+<span class="co">#&gt;  2 23    ME    Maine  New England                1 New Englan… NENG       </span>
+<span class="co">#&gt;  3 25    MA    Massa… New England                1 New Englan… NENG       </span>
+<span class="co">#&gt;  4 33    NH    New H… New England                1 New Englan… NENG       </span>
+<span class="co">#&gt;  5 44    RI    Rhode… New England                1 New Englan… NENG       </span>
+<span class="co">#&gt;  6 50    VT    Vermo… New England                1 New Englan… NENG       </span>
+<span class="co">#&gt;  7 10    DE    Delaw… Mideast                    2 Mideast Re… MEST       </span>
+<span class="co">#&gt;  8 11    DC    Distr… Mideast                    2 Mideast Re… MEST       </span>
+<span class="co">#&gt;  9 24    MD    Maryl… Mideast                    2 Mideast Re… MEST       </span>
+<span class="co">#&gt; 10 34    NJ    New J… Mideast                    2 Mideast Re… MEST       </span>
+<span class="co">#&gt; # ... with 41 more rows</span></code></pre></div>
+<p><img src="README-files/bea_regions-1.png" width="672"></p>
+</div>
 <div id="nchs-urban-rural-codes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#nchs-urban-rural-codes" class="anchor"></a>NCHS Urban Rural Codes</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fips<span class="op">::</span>nchs_urc
 <span class="co">#&gt; # A tibble: 3,147 x 10</span>
-<span class="co">#&gt;     usps statefip  fips          county  code2013  code2006  code1990</span>
-<span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;           &lt;chr&gt; &lt;dbl+lbl&gt; &lt;dbl+lbl&gt; &lt;dbl+lbl&gt;</span>
-<span class="co">#&gt;  1    AL       01 01001  Autauga County         3         3         3</span>
-<span class="co">#&gt;  2    AL       01 01003  Baldwin County         4         5         3</span>
-<span class="co">#&gt;  3    AL       01 01005  Barbour County         6         5         5</span>
-<span class="co">#&gt;  4    AL       01 01007     Bibb County         2         2         6</span>
-<span class="co">#&gt;  5    AL       01 01009   Blount County         2         2         3</span>
-<span class="co">#&gt;  6    AL       01 01011  Bullock County         6         6         6</span>
-<span class="co">#&gt;  7    AL       01 01013   Butler County         6         6         6</span>
-<span class="co">#&gt;  8    AL       01 01015  Calhoun County         4         4         4</span>
-<span class="co">#&gt;  9    AL       01 01017 Chambers County         5         5         6</span>
-<span class="co">#&gt; 10    AL       01 01019 Cherokee County         6         6         6</span>
-<span class="co">#&gt; # ... with 3,137 more rows, and 3 more variables: cbsatitle &lt;chr&gt;,</span>
-<span class="co">#&gt; #   cbsapop &lt;dbl&gt;, ctypop &lt;dbl&gt;</span></code></pre></div>
+<span class="co">#&gt;    usps  statefip fips  county   code2013  code2006 code1990 cbsatitle    </span>
+<span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;    &lt;dbl+lbl&gt; &lt;dbl+lb&gt; &lt;dbl+lb&gt; &lt;chr&gt;        </span>
+<span class="co">#&gt;  1 AL    01       01001 Autauga… 3         3        3        Montgomery, …</span>
+<span class="co">#&gt;  2 AL    01       01003 Baldwin… 4         5        3        Daphne-Fairh…</span>
+<span class="co">#&gt;  3 AL    01       01005 Barbour… 6         5        5        ""           </span>
+<span class="co">#&gt;  4 AL    01       01007 Bibb Co… 2         2        6        Birmingham-H…</span>
+<span class="co">#&gt;  5 AL    01       01009 Blount … 2         2        3        Birmingham-H…</span>
+<span class="co">#&gt;  6 AL    01       01011 Bullock… 6         6        6        ""           </span>
+<span class="co">#&gt;  7 AL    01       01013 Butler … 6         6        6        ""           </span>
+<span class="co">#&gt;  8 AL    01       01015 Calhoun… 4         4        4        Anniston-Oxf…</span>
+<span class="co">#&gt;  9 AL    01       01017 Chamber… 5         5        6        Valley, AL   </span>
+<span class="co">#&gt; 10 AL    01       01019 Cheroke… 6         6        6        ""           </span>
+<span class="co">#&gt; # ... with 3,137 more rows, and 2 more variables: cbsapop &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   ctypop &lt;dbl&gt;</span></code></pre></div>
 <p><img src="README-files/nchs_urc_2013-1.png" width="672"></p>
 <p><img src="README-files/nchs_urc_2006-1.png" width="672"></p>
 <p><img src="README-files/nchs_urc_1990-1.png" width="672"></p>
@@ -213,7 +243,8 @@ fips<span class="op">::</span>fips <span class="op">%&gt;%</span><span class="st
 <p>CC0</p>
 <h2>Developers</h2>
 <ul class="list-unstyled">
-<li>JJ Chen <br><small class="roles"> Author, maintainer </small> </li>
+<li>JJ Chen <br><small class="roles"> Author, maintainer </small> <br><small>(0000-0001-8482-8398)</small>
+</li>
 </ul>
 <h2>Dev status</h2>
 <ul class="list-unstyled">

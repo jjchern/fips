@@ -1,8 +1,10 @@
 Package: fips
 Type: Package
 Title: FIPS Code for U.S. States and Counties.
-Version: 0.0.1
-Authors@R: person("JJ", "Chen", , "jiajia.chern@gmail.com", c("aut", "cre"))
+Version: 0.0.2
+Authors@R: c(person("JJ", "Chen", email = "jiajia.chern@gmail.com", 
+             role = c("aut", "cre"),
+             comment = c(ORCID = "0000-0001-8482-8398")))
 Description: Data for U.S. FIPS State and County Code and related classifications.
 License: CC0
 LazyData: TRUE

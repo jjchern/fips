@@ -7,3 +7,5 @@ readr
 purrr
 dplyr
 bindrcpp
+stringr
+forcats
