@@ -25,3 +25,10 @@
 #'
 #' @source \url{https://www.cdc.gov/nchs/data_access/urban_rural.htm}
 "nchs_urc"
+
+#' BEA Region Codes
+#'
+#' Component state list for BEA regions.
+#'
+#' @source \url{https://www.bea.gov/regional/docs/regions.cfm}
+"bea_region"
