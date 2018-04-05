@@ -1,111 +1,113 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-About
-=====
 
-[![Travis-CI Build Status](https://travis-ci.org/jjchern/fips.svg?branch=master)](https://travis-ci.org/jjchern/fips) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/jjchern/fips?branch=master&svg=true)](https://ci.appveyor.com/project/jjchern/fips)
+# About
+
+[![Travis-CI Build
+Status](https://travis-ci.org/jjchern/fips.svg?branch=master)](https://travis-ci.org/jjchern/fips)
+[![AppVeyor Build
+Status](https://ci.appveyor.com/api/projects/status/github/jjchern/fips?branch=master&svg=true)](https://ci.appveyor.com/project/jjchern/fips)
 
 `fips` is an R data package. The following datasets are available:
 
--   `fips::fips` and `fips::state`:
-    -   State-level FIPS codes. [(Source)](https://www.census.gov/geo/reference/ansi_statetables.html)
--   `fips::county`:
-    -   2010 county-level FIPS codes. [(Source)](https://www.census.gov/geo/reference/codes/cou.html)
--   `fips::nchs_urc`:
-    -   NCHS Urban-Rural Classification Scheme for Counties. [(Source)](https://www.cdc.gov/nchs/data_access/urban_rural.htm)
--   `fips::bea_region`:
-    -   BEA Region codes. [(Source)](https://www.bea.gov/regional/docs/regions.cfm)
+  - `fips::fips` and `fips::state`:
+      - State-level FIPS codes.
+        [(Source)](https://www.census.gov/geo/reference/ansi_statetables.html)
+  - `fips::county`:
+      - 2010 county-level FIPS codes.
+        [(Source)](https://www.census.gov/geo/reference/codes/cou.html)
+  - `fips::nchs_urc`:
+      - NCHS Urban-Rural Classification Scheme for Counties.
+        [(Source)](https://www.cdc.gov/nchs/data_access/urban_rural.htm)
+  - `fips::bea_region`:
+      - BEA Region codes.
+        [(Source)](https://www.bea.gov/regional/docs/regions.cfm)
 
-Installation
-============
+# Installation
 
 ``` r
 # install.package("devtools")
-devtools::install_github("jjchern/fips")
+devtools::install_github("jjchern/fips@0.0.2")
 
 # To uninstall the package, use:
 # remove.packages("fips")
 ```
 
-Usage
-=====
+# Usage
 
-State-level FIPS code
----------------------
+## State-level FIPS code
 
 ``` r
 library(tidyverse)
 fips::state
 #> # A tibble: 51 x 3
-#>     fips  usps                state
-#>    <chr> <chr>                <chr>
-#>  1    01    AL              Alabama
-#>  2    02    AK               Alaska
-#>  3    04    AZ              Arizona
-#>  4    05    AR             Arkansas
-#>  5    06    CA           California
-#>  6    08    CO             Colorado
-#>  7    09    CT          Connecticut
-#>  8    10    DE             Delaware
-#>  9    11    DC District of Columbia
-#> 10    12    FL              Florida
+#>    fips  usps  state               
+#>    <chr> <chr> <chr>               
+#>  1 01    AL    Alabama             
+#>  2 02    AK    Alaska              
+#>  3 04    AZ    Arizona             
+#>  4 05    AR    Arkansas            
+#>  5 06    CA    California          
+#>  6 08    CO    Colorado            
+#>  7 09    CT    Connecticut         
+#>  8 10    DE    Delaware            
+#>  9 11    DC    District of Columbia
+#> 10 12    FL    Florida             
 #> # ... with 41 more rows
 
 # fips::fips includes FIPS code for other outlying areas
 fips::fips 
 #> # A tibble: 57 x 3
-#>     fips  usps                state
-#>    <chr> <chr>                <chr>
-#>  1    01    AL              Alabama
-#>  2    02    AK               Alaska
-#>  3    04    AZ              Arizona
-#>  4    05    AR             Arkansas
-#>  5    06    CA           California
-#>  6    08    CO             Colorado
-#>  7    09    CT          Connecticut
-#>  8    10    DE             Delaware
-#>  9    11    DC District of Columbia
-#> 10    12    FL              Florida
+#>    fips  usps  state               
+#>    <chr> <chr> <chr>               
+#>  1 01    AL    Alabama             
+#>  2 02    AK    Alaska              
+#>  3 04    AZ    Arizona             
+#>  4 05    AR    Arkansas            
+#>  5 06    CA    California          
+#>  6 08    CO    Colorado            
+#>  7 09    CT    Connecticut         
+#>  8 10    DE    Delaware            
+#>  9 11    DC    District of Columbia
+#> 10 12    FL    Florida             
 #> # ... with 47 more rows
 fips::fips %>% tail(10)
 #> # A tibble: 10 x 3
-#>     fips  usps                       state
-#>    <chr> <chr>                       <chr>
-#>  1    53    WA                  Washington
-#>  2    54    WV               West Virginia
-#>  3    55    WI                   Wisconsin
-#>  4    56    WY                     Wyoming
-#>  5    60    AS              American Samoa
-#>  6    66    GU                        Guam
-#>  7    69    MP    Northern Mariana Islands
-#>  8    72    PR                 Puerto Rico
-#>  9    74    UM U.S. Minor Outlying Islands
-#> 10    78    VI         U.S. Virgin Islands
+#>    fips  usps  state                      
+#>    <chr> <chr> <chr>                      
+#>  1 53    WA    Washington                 
+#>  2 54    WV    West Virginia              
+#>  3 55    WI    Wisconsin                  
+#>  4 56    WY    Wyoming                    
+#>  5 60    AS    American Samoa             
+#>  6 66    GU    Guam                       
+#>  7 69    MP    Northern Mariana Islands   
+#>  8 72    PR    Puerto Rico                
+#>  9 74    UM    U.S. Minor Outlying Islands
+#> 10 78    VI    U.S. Virgin Islands
 ```
 
-2010 FIPS code for counties
----------------------------
+## 2010 FIPS code for counties
 
 ``` r
 fips::county
 #> # A tibble: 3,235 x 4
-#>     usps   state  fips          county
-#>    <chr>   <chr> <chr>           <chr>
-#>  1    AL Alabama 01001  Autauga County
-#>  2    AL Alabama 01003  Baldwin County
-#>  3    AL Alabama 01005  Barbour County
-#>  4    AL Alabama 01007     Bibb County
-#>  5    AL Alabama 01009   Blount County
-#>  6    AL Alabama 01011  Bullock County
-#>  7    AL Alabama 01013   Butler County
-#>  8    AL Alabama 01015  Calhoun County
-#>  9    AL Alabama 01017 Chambers County
-#> 10    AL Alabama 01019 Cherokee County
+#>    usps  state   fips  county         
+#>    <chr> <chr>   <chr> <chr>          
+#>  1 AL    Alabama 01001 Autauga County 
+#>  2 AL    Alabama 01003 Baldwin County 
+#>  3 AL    Alabama 01005 Barbour County 
+#>  4 AL    Alabama 01007 Bibb County    
+#>  5 AL    Alabama 01009 Blount County  
+#>  6 AL    Alabama 01011 Bullock County 
+#>  7 AL    Alabama 01013 Butler County  
+#>  8 AL    Alabama 01015 Calhoun County 
+#>  9 AL    Alabama 01017 Chambers County
+#> 10 AL    Alabama 01019 Cherokee County
 #> # ... with 3,225 more rows
 ```
 
-BEA Region codes for states
----------------------------
+## BEA Region codes for states
 
 ``` r
 fips::bea_region
@@ -125,10 +127,9 @@ fips::bea_region
 #> # ... with 41 more rows
 ```
 
-![](README-files/bea_regions-1.png)
+![](README-files/bea_regions-1.png)<!-- -->
 
-NCHS Urban Rural Codes
-----------------------
+## NCHS Urban Rural Codes
 
 ``` r
 fips::nchs_urc
@@ -149,8 +150,8 @@ fips::nchs_urc
 #> #   ctypop <dbl>
 ```
 
-![](README-files/nchs_urc_2013-1.png)
+![](README-files/nchs_urc_2013-1.png)<!-- -->
 
-![](README-files/nchs_urc_2006-1.png)
+![](README-files/nchs_urc_2006-1.png)<!-- -->
 
-![](README-files/nchs_urc_1990-1.png)
+![](README-files/nchs_urc_1990-1.png)<!-- -->
