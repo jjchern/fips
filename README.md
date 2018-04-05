@@ -27,7 +27,7 @@ Status](https://ci.appveyor.com/api/projects/status/github/jjchern/fips?branch=m
 
 ``` r
 # install.package("devtools")
-devtools::install_github("jjchern/fips@0.0.2")
+devtools::install_github("jjchern/fips@v0.0.2")
 
 # To uninstall the package, use:
 # remove.packages("fips")
