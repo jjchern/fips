@@ -104,11 +104,11 @@
 <div id="installation" class="section level1">
 <h1 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h1>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.package("devtools")</span>
-devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"jjchern/fips"</span>)
-
-<span class="co"># To uninstall the package, use:</span>
-<span class="co"># remove.packages("fips")</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install.package("devtools")</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"jjchern/fips@v0.0.2"</span>)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># To uninstall the package, use:</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co"># remove.packages("fips")</span></a></code></pre></div>
 </div>
 <div id="usage" class="section level1">
 <h1 class="hasAnchor">
@@ -116,112 +116,112 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <div id="state-level-fips-code" class="section level2">
 <h2 class="hasAnchor">
 <a href="#state-level-fips-code" class="anchor"></a>State-level FIPS code</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
-fips<span class="op">::</span>state
-<span class="co">#&gt; # A tibble: 51 x 3</span>
-<span class="co">#&gt;     fips  usps                state</span>
-<span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;                &lt;chr&gt;</span>
-<span class="co">#&gt;  1    01    AL              Alabama</span>
-<span class="co">#&gt;  2    02    AK               Alaska</span>
-<span class="co">#&gt;  3    04    AZ              Arizona</span>
-<span class="co">#&gt;  4    05    AR             Arkansas</span>
-<span class="co">#&gt;  5    06    CA           California</span>
-<span class="co">#&gt;  6    08    CO             Colorado</span>
-<span class="co">#&gt;  7    09    CT          Connecticut</span>
-<span class="co">#&gt;  8    10    DE             Delaware</span>
-<span class="co">#&gt;  9    11    DC District of Columbia</span>
-<span class="co">#&gt; 10    12    FL              Florida</span>
-<span class="co">#&gt; # ... with 41 more rows</span>
-
-<span class="co"># fips::fips includes FIPS code for other outlying areas</span>
-fips<span class="op">::</span>fips 
-<span class="co">#&gt; # A tibble: 57 x 3</span>
-<span class="co">#&gt;     fips  usps                state</span>
-<span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;                &lt;chr&gt;</span>
-<span class="co">#&gt;  1    01    AL              Alabama</span>
-<span class="co">#&gt;  2    02    AK               Alaska</span>
-<span class="co">#&gt;  3    04    AZ              Arizona</span>
-<span class="co">#&gt;  4    05    AR             Arkansas</span>
-<span class="co">#&gt;  5    06    CA           California</span>
-<span class="co">#&gt;  6    08    CO             Colorado</span>
-<span class="co">#&gt;  7    09    CT          Connecticut</span>
-<span class="co">#&gt;  8    10    DE             Delaware</span>
-<span class="co">#&gt;  9    11    DC District of Columbia</span>
-<span class="co">#&gt; 10    12    FL              Florida</span>
-<span class="co">#&gt; # ... with 47 more rows</span>
-fips<span class="op">::</span>fips <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tail</span>(<span class="dv">10</span>)
-<span class="co">#&gt; # A tibble: 10 x 3</span>
-<span class="co">#&gt;     fips  usps                       state</span>
-<span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;                       &lt;chr&gt;</span>
-<span class="co">#&gt;  1    53    WA                  Washington</span>
-<span class="co">#&gt;  2    54    WV               West Virginia</span>
-<span class="co">#&gt;  3    55    WI                   Wisconsin</span>
-<span class="co">#&gt;  4    56    WY                     Wyoming</span>
-<span class="co">#&gt;  5    60    AS              American Samoa</span>
-<span class="co">#&gt;  6    66    GU                        Guam</span>
-<span class="co">#&gt;  7    69    MP    Northern Mariana Islands</span>
-<span class="co">#&gt;  8    72    PR                 Puerto Rico</span>
-<span class="co">#&gt;  9    74    UM U.S. Minor Outlying Islands</span>
-<span class="co">#&gt; 10    78    VI         U.S. Virgin Islands</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">fips<span class="op">::</span>state</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt; # A tibble: 51 x 3</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt;     fips  usps                state</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;                &lt;chr&gt;</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt;  1    01    AL              Alabama</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt;  2    02    AK               Alaska</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt;  3    04    AZ              Arizona</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt;  4    05    AR             Arkansas</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt;  5    06    CA           California</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt;  6    08    CO             Colorado</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt;  7    09    CT          Connecticut</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt;  8    10    DE             Delaware</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt;  9    11    DC District of Columbia</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt; 10    12    FL              Florida</span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt; # ... with 41 more rows</span></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co"># fips::fips includes FIPS code for other outlying areas</span></a>
+<a class="sourceLine" id="cb2-19" data-line-number="19">fips<span class="op">::</span>fips </a>
+<a class="sourceLine" id="cb2-20" data-line-number="20"><span class="co">#&gt; # A tibble: 57 x 3</span></a>
+<a class="sourceLine" id="cb2-21" data-line-number="21"><span class="co">#&gt;     fips  usps                state</span></a>
+<a class="sourceLine" id="cb2-22" data-line-number="22"><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;                &lt;chr&gt;</span></a>
+<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">#&gt;  1    01    AL              Alabama</span></a>
+<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">#&gt;  2    02    AK               Alaska</span></a>
+<a class="sourceLine" id="cb2-25" data-line-number="25"><span class="co">#&gt;  3    04    AZ              Arizona</span></a>
+<a class="sourceLine" id="cb2-26" data-line-number="26"><span class="co">#&gt;  4    05    AR             Arkansas</span></a>
+<a class="sourceLine" id="cb2-27" data-line-number="27"><span class="co">#&gt;  5    06    CA           California</span></a>
+<a class="sourceLine" id="cb2-28" data-line-number="28"><span class="co">#&gt;  6    08    CO             Colorado</span></a>
+<a class="sourceLine" id="cb2-29" data-line-number="29"><span class="co">#&gt;  7    09    CT          Connecticut</span></a>
+<a class="sourceLine" id="cb2-30" data-line-number="30"><span class="co">#&gt;  8    10    DE             Delaware</span></a>
+<a class="sourceLine" id="cb2-31" data-line-number="31"><span class="co">#&gt;  9    11    DC District of Columbia</span></a>
+<a class="sourceLine" id="cb2-32" data-line-number="32"><span class="co">#&gt; 10    12    FL              Florida</span></a>
+<a class="sourceLine" id="cb2-33" data-line-number="33"><span class="co">#&gt; # ... with 47 more rows</span></a>
+<a class="sourceLine" id="cb2-34" data-line-number="34">fips<span class="op">::</span>fips <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tail</span>(<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb2-35" data-line-number="35"><span class="co">#&gt; # A tibble: 10 x 3</span></a>
+<a class="sourceLine" id="cb2-36" data-line-number="36"><span class="co">#&gt;     fips  usps                       state</span></a>
+<a class="sourceLine" id="cb2-37" data-line-number="37"><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;                       &lt;chr&gt;</span></a>
+<a class="sourceLine" id="cb2-38" data-line-number="38"><span class="co">#&gt;  1    53    WA                  Washington</span></a>
+<a class="sourceLine" id="cb2-39" data-line-number="39"><span class="co">#&gt;  2    54    WV               West Virginia</span></a>
+<a class="sourceLine" id="cb2-40" data-line-number="40"><span class="co">#&gt;  3    55    WI                   Wisconsin</span></a>
+<a class="sourceLine" id="cb2-41" data-line-number="41"><span class="co">#&gt;  4    56    WY                     Wyoming</span></a>
+<a class="sourceLine" id="cb2-42" data-line-number="42"><span class="co">#&gt;  5    60    AS              American Samoa</span></a>
+<a class="sourceLine" id="cb2-43" data-line-number="43"><span class="co">#&gt;  6    66    GU                        Guam</span></a>
+<a class="sourceLine" id="cb2-44" data-line-number="44"><span class="co">#&gt;  7    69    MP    Northern Mariana Islands</span></a>
+<a class="sourceLine" id="cb2-45" data-line-number="45"><span class="co">#&gt;  8    72    PR                 Puerto Rico</span></a>
+<a class="sourceLine" id="cb2-46" data-line-number="46"><span class="co">#&gt;  9    74    UM U.S. Minor Outlying Islands</span></a>
+<a class="sourceLine" id="cb2-47" data-line-number="47"><span class="co">#&gt; 10    78    VI         U.S. Virgin Islands</span></a></code></pre></div>
 </div>
 <div id="fips-code-for-counties" class="section level2">
 <h2 class="hasAnchor">
 <a href="#fips-code-for-counties" class="anchor"></a>2010 FIPS code for counties</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fips<span class="op">::</span>county
-<span class="co">#&gt; # A tibble: 3,235 x 4</span>
-<span class="co">#&gt;     usps   state  fips          county</span>
-<span class="co">#&gt;    &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;           &lt;chr&gt;</span>
-<span class="co">#&gt;  1    AL Alabama 01001  Autauga County</span>
-<span class="co">#&gt;  2    AL Alabama 01003  Baldwin County</span>
-<span class="co">#&gt;  3    AL Alabama 01005  Barbour County</span>
-<span class="co">#&gt;  4    AL Alabama 01007     Bibb County</span>
-<span class="co">#&gt;  5    AL Alabama 01009   Blount County</span>
-<span class="co">#&gt;  6    AL Alabama 01011  Bullock County</span>
-<span class="co">#&gt;  7    AL Alabama 01013   Butler County</span>
-<span class="co">#&gt;  8    AL Alabama 01015  Calhoun County</span>
-<span class="co">#&gt;  9    AL Alabama 01017 Chambers County</span>
-<span class="co">#&gt; 10    AL Alabama 01019 Cherokee County</span>
-<span class="co">#&gt; # ... with 3,225 more rows</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">fips<span class="op">::</span>county</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">#&gt; # A tibble: 3,235 x 4</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#&gt;     usps   state  fips          county</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt;    &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;           &lt;chr&gt;</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt;  1    AL Alabama 01001  Autauga County</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt;  2    AL Alabama 01003  Baldwin County</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt;  3    AL Alabama 01005  Barbour County</span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt;  4    AL Alabama 01007     Bibb County</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt;  5    AL Alabama 01009   Blount County</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt;  6    AL Alabama 01011  Bullock County</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt;  7    AL Alabama 01013   Butler County</span></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt;  8    AL Alabama 01015  Calhoun County</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt;  9    AL Alabama 01017 Chambers County</span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt; 10    AL Alabama 01019 Cherokee County</span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">#&gt; # ... with 3,225 more rows</span></a></code></pre></div>
 </div>
 <div id="bea-region-codes-for-states" class="section level2">
 <h2 class="hasAnchor">
 <a href="#bea-region-codes-for-states" class="anchor"></a>BEA Region codes for states</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fips<span class="op">::</span>bea_region
-<span class="co">#&gt; # A tibble: 51 x 7</span>
-<span class="co">#&gt;    fips  usps  state  short_region_na… region_code region_name region_abbr</span>
-<span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;                  &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;      </span>
-<span class="co">#&gt;  1 09    CT    Conne… New England                1 New Englan… NENG       </span>
-<span class="co">#&gt;  2 23    ME    Maine  New England                1 New Englan… NENG       </span>
-<span class="co">#&gt;  3 25    MA    Massa… New England                1 New Englan… NENG       </span>
-<span class="co">#&gt;  4 33    NH    New H… New England                1 New Englan… NENG       </span>
-<span class="co">#&gt;  5 44    RI    Rhode… New England                1 New Englan… NENG       </span>
-<span class="co">#&gt;  6 50    VT    Vermo… New England                1 New Englan… NENG       </span>
-<span class="co">#&gt;  7 10    DE    Delaw… Mideast                    2 Mideast Re… MEST       </span>
-<span class="co">#&gt;  8 11    DC    Distr… Mideast                    2 Mideast Re… MEST       </span>
-<span class="co">#&gt;  9 24    MD    Maryl… Mideast                    2 Mideast Re… MEST       </span>
-<span class="co">#&gt; 10 34    NJ    New J… Mideast                    2 Mideast Re… MEST       </span>
-<span class="co">#&gt; # ... with 41 more rows</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">fips<span class="op">::</span>bea_region</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; # A tibble: 51 x 7</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt;    fips  usps  state  short_region_na… region_code region_name region_abbr</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;                  &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;      </span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt;  1 09    CT    Conne… New England                1 New Englan… NENG       </span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt;  2 23    ME    Maine  New England                1 New Englan… NENG       </span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt;  3 25    MA    Massa… New England                1 New Englan… NENG       </span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt;  4 33    NH    New H… New England                1 New Englan… NENG       </span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt;  5 44    RI    Rhode… New England                1 New Englan… NENG       </span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt;  6 50    VT    Vermo… New England                1 New Englan… NENG       </span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt;  7 10    DE    Delaw… Mideast                    2 Mideast Re… MEST       </span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt;  8 11    DC    Distr… Mideast                    2 Mideast Re… MEST       </span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt;  9 24    MD    Maryl… Mideast                    2 Mideast Re… MEST       </span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">#&gt; 10 34    NJ    New J… Mideast                    2 Mideast Re… MEST       </span></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt; # ... with 41 more rows</span></a></code></pre></div>
 <p><img src="README-files/bea_regions-1.png" width="672"></p>
 </div>
 <div id="nchs-urban-rural-codes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#nchs-urban-rural-codes" class="anchor"></a>NCHS Urban Rural Codes</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fips<span class="op">::</span>nchs_urc
-<span class="co">#&gt; # A tibble: 3,147 x 10</span>
-<span class="co">#&gt;    usps  statefip fips  county   code2013  code2006 code1990 cbsatitle    </span>
-<span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;    &lt;dbl+lbl&gt; &lt;dbl+lb&gt; &lt;dbl+lb&gt; &lt;chr&gt;        </span>
-<span class="co">#&gt;  1 AL    01       01001 Autauga… 3         3        3        Montgomery, …</span>
-<span class="co">#&gt;  2 AL    01       01003 Baldwin… 4         5        3        Daphne-Fairh…</span>
-<span class="co">#&gt;  3 AL    01       01005 Barbour… 6         5        5        ""           </span>
-<span class="co">#&gt;  4 AL    01       01007 Bibb Co… 2         2        6        Birmingham-H…</span>
-<span class="co">#&gt;  5 AL    01       01009 Blount … 2         2        3        Birmingham-H…</span>
-<span class="co">#&gt;  6 AL    01       01011 Bullock… 6         6        6        ""           </span>
-<span class="co">#&gt;  7 AL    01       01013 Butler … 6         6        6        ""           </span>
-<span class="co">#&gt;  8 AL    01       01015 Calhoun… 4         4        4        Anniston-Oxf…</span>
-<span class="co">#&gt;  9 AL    01       01017 Chamber… 5         5        6        Valley, AL   </span>
-<span class="co">#&gt; 10 AL    01       01019 Cheroke… 6         6        6        ""           </span>
-<span class="co">#&gt; # ... with 3,137 more rows, and 2 more variables: cbsapop &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   ctypop &lt;dbl&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">fips<span class="op">::</span>nchs_urc</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; # A tibble: 3,147 x 10</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt;    usps  statefip fips  county   code2013  code2006 code1990 cbsatitle    </span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;    &lt;dbl+lbl&gt; &lt;dbl+lb&gt; &lt;dbl+lb&gt; &lt;chr&gt;        </span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt;  1 AL    01       01001 Autauga… 3         3        3        Montgomery, …</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt;  2 AL    01       01003 Baldwin… 4         5        3        Daphne-Fairh…</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt;  3 AL    01       01005 Barbour… 6         5        5        ""           </span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt;  4 AL    01       01007 Bibb Co… 2         2        6        Birmingham-H…</span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt;  5 AL    01       01009 Blount … 2         2        3        Birmingham-H…</span></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt;  6 AL    01       01011 Bullock… 6         6        6        ""           </span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#&gt;  7 AL    01       01013 Butler … 6         6        6        ""           </span></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">#&gt;  8 AL    01       01015 Calhoun… 4         4        4        Anniston-Oxf…</span></a>
+<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">#&gt;  9 AL    01       01017 Chamber… 5         5        6        Valley, AL   </span></a>
+<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co">#&gt; 10 AL    01       01019 Cheroke… 6         6        6        ""           </span></a>
+<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">#&gt; # ... with 3,137 more rows, and 2 more variables: cbsapop &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb5-16" data-line-number="16"><span class="co">#&gt; #   ctypop &lt;dbl&gt;</span></a></code></pre></div>
 <p><img src="README-files/nchs_urc_2013-1.png" width="672"></p>
 <p><img src="README-files/nchs_urc_2006-1.png" width="672"></p>
 <p><img src="README-files/nchs_urc_1990-1.png" width="672"></p>
