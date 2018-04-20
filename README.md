@@ -1,14 +1,16 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# About
-
 [![Travis-CI Build
 Status](https://travis-ci.org/jjchern/fips.svg?branch=master)](https://travis-ci.org/jjchern/fips)
 [![AppVeyor Build
 Status](https://ci.appveyor.com/api/projects/status/github/jjchern/fips?branch=master&svg=true)](https://ci.appveyor.com/project/jjchern/fips)
 
-`fips` is an R data package. The following datasets are available:
+# About `fips`
+
+The R package `fips` makes it easier to merge geographic identifiers
+such as state FIPS, county FIPS, urban-rural codes, and BEA region
+codes. The following datasets are available:
 
   - `fips::fips` and `fips::state`:
       - State-level FIPS codes.
@@ -22,6 +24,9 @@ Status](https://ci.appveyor.com/api/projects/status/github/jjchern/fips?branch=m
   - `fips::bea_region`:
       - BEA Region codes.
         [(Source)](https://www.bea.gov/regional/docs/regions.cfm)
+
+For a similar implementation in Stata, see [`statastates` by
+`wschpero`.](https://github.com/wschpero/statastates)
 
 # Installation
 

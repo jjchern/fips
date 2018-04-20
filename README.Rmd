@@ -13,12 +13,12 @@ knitr::opts_chunk$set(
 )
 ```
 
-# About
-
 [![Travis-CI Build Status](https://travis-ci.org/jjchern/fips.svg?branch=master)](https://travis-ci.org/jjchern/fips)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/jjchern/fips?branch=master&svg=true)](https://ci.appveyor.com/project/jjchern/fips)
 
-`fips` is an R data package. The following datasets are available:
+# About `fips`
+
+The R package `fips` makes it easier to merge geographic identifiers such as state FIPS, county FIPS, urban-rural codes, and BEA region codes. The following datasets are available:
 
 - `fips::fips` and `fips::state`: 
     - State-level FIPS codes. [(Source)](https://www.census.gov/geo/reference/ansi_statetables.html)
@@ -31,6 +31,8 @@ knitr::opts_chunk$set(
     
 - `fips::bea_region`:
     - BEA Region codes. [(Source)](https://www.bea.gov/regional/docs/regions.cfm)
+    
+For a similar implementation in Stata, see [`statastates` by `wschpero`.](https://github.com/wschpero/statastates)
 
 # Installation
 
@@ -154,7 +156,3 @@ nchs_urc %>%
           legend.title=element_blank(), 
           plot.title = element_text(hjust = 0.5))
 ```
-
-
-
-
