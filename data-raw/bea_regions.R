@@ -9,7 +9,7 @@ xml2::read_html("https://www.bea.gov/regional/docs/regions.cfm") %>%
     print() -> df
 
 df %>%
-    `names<-`(lettercase::str_snake_case(names(.))) %>%
+    docxtractr::mcga() %>%
     group_by(region_code) %>%
     slice(1) %>%
     select(region_code,
@@ -28,4 +28,4 @@ df %>%
     select(fips, usps, state, short_region_name, everything()) %>%
     print() -> bea_region
 
-devtools::use_data(bea_region, overwrite = TRUE)
+usethis::use_data(bea_region, overwrite = TRUE)

@@ -18,7 +18,7 @@ readr::read_delim(fil, delim = "|") %>%
 fips %>% filter(fips <= 56) %>% print() -> state
 state %>% filter(!fips %in% c("02", "15")) %>% print() -> lower48
 
-devtools::use_data(state, fips, lower48, overwrite = TRUE)
+usethis::use_data(state, fips, lower48, overwrite = TRUE)
 
 # FIPS codes for US counties ----------------------------------------------
 
@@ -34,7 +34,7 @@ fips %>%
   select(usps, state) %>%
   right_join(county, by = "usps") -> county
 
-devtools::use_data(county, overwrite = TRUE)
+usethis::use_data(county, overwrite = TRUE)
 
 # Other Special Short Names
 # county %>% filter(!stringr::str_detect(county, "County|Borough|City and Borough|Census Area|Municipality|Municipio|Parish|city|City"))
