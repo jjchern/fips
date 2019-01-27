@@ -58,6 +58,9 @@ fips::state
 # fips::fips includes FIPS code for other outlying areas
 fips::fips 
 fips::fips %>% tail(10)
+
+# fips::lower48 includes the 48 continental states and DC
+fips::lower48
 ```
 
 ## 2010 FIPS code for counties

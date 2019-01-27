@@ -63,7 +63,7 @@ fips::state
 #>  8 10    DE    Delaware            
 #>  9 11    DC    District of Columbia
 #> 10 12    FL    Florida             
-#> # ... with 41 more rows
+#> # … with 41 more rows
 
 # fips::fips includes FIPS code for other outlying areas
 fips::fips 
@@ -80,7 +80,7 @@ fips::fips
 #>  8 10    DE    Delaware            
 #>  9 11    DC    District of Columbia
 #> 10 12    FL    Florida             
-#> # ... with 47 more rows
+#> # … with 47 more rows
 fips::fips %>% tail(10)
 #> # A tibble: 10 x 3
 #>    fips  usps  state                      
@@ -95,6 +95,23 @@ fips::fips %>% tail(10)
 #>  8 72    PR    Puerto Rico                
 #>  9 74    UM    U.S. Minor Outlying Islands
 #> 10 78    VI    U.S. Virgin Islands
+
+# fips::lower48 includes the 48 continental states and DC
+fips::lower48
+#> # A tibble: 49 x 3
+#>    fips  usps  state               
+#>    <chr> <chr> <chr>               
+#>  1 01    AL    Alabama             
+#>  2 04    AZ    Arizona             
+#>  3 05    AR    Arkansas            
+#>  4 06    CA    California          
+#>  5 08    CO    Colorado            
+#>  6 09    CT    Connecticut         
+#>  7 10    DE    Delaware            
+#>  8 11    DC    District of Columbia
+#>  9 12    FL    Florida             
+#> 10 13    GA    Georgia             
+#> # … with 39 more rows
 ```
 
 ## 2010 FIPS code for counties
