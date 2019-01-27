@@ -1,7 +1,7 @@
 Package: fips
 Type: Package
 Title: FIPS Code for U.S. States and Counties.
-Version: 0.0.2
+Version: 0.0.3
 Authors@R: c(person("JJ", "Chen", email = "jiajia.chern@gmail.com", 
              role = c("aut", "cre"),
              comment = c(ORCID = "0000-0001-8482-8398")))
@@ -11,4 +11,4 @@ LazyData: TRUE
 Depends: R (>= 2.10)
 URL: http://github.com/jjchern/fips
 BugReports: https://github.com/jjchern/fips/issues
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0

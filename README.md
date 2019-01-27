@@ -12,9 +12,14 @@ The R package `fips` makes it easier to merge geographic identifiers
 such as state FIPS, county FIPS, urban-rural codes, and BEA region
 codes. The following datasets are available:
 
-  - `fips::fips` and `fips::state`:
+  - `fips::fips`, `fips::state`, and `fips::lower48`:
       - State-level FIPS codes.
         [(Source)](https://www.census.gov/geo/reference/ansi_statetables.html)
+      - `fips::fips` contains 50 states, the District of Columbia, and
+        the Outlying Areas of the United States.
+      - `fips::state` contains 50 states and the District of Columbia.
+      - `fips::lower48` contains the 48 Contiguous Continental States
+        and the District of Columbia.
   - `fips::county`:
       - 2010 county-level FIPS codes.
         [(Source)](https://www.census.gov/geo/reference/codes/cou.html)
@@ -32,7 +37,7 @@ For a similar implementation in Stata, see [`statastates` by
 
 ``` r
 # install.package("devtools")
-devtools::install_github("jjchern/fips@v0.0.2")
+devtools::install_github("jjchern/fips@v0.0.3")
 
 # To uninstall the package, use:
 # remove.packages("fips")

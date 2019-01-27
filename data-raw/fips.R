@@ -15,9 +15,10 @@ readr::read_delim(fil, delim = "|") %>%
   ) %>%
   arrange(fips) -> fips
 
-fips %>% filter(fips <= 56) -> state
+fips %>% filter(fips <= 56) %>% print() -> state
+state %>% filter(!fips %in% c("02", "15")) %>% print() -> lower48
 
-devtools::use_data(state, fips, overwrite = TRUE)
+devtools::use_data(state, fips, lower48, overwrite = TRUE)
 
 # FIPS codes for US counties ----------------------------------------------
 

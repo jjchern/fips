@@ -12,6 +12,13 @@
 #' @source \url{https://www.census.gov/geo/reference/ansi_statetables.html}
 "state"
 
+#' State-level FIPS Code
+#'
+#' FIPS Codes for the 48 Contiguous Continental States and the District of Columbia.
+#'
+#' @source \url{https://www.census.gov/geo/reference/ansi_statetables.html}
+"lower48"
+
 #' County-level FIPS Code
 #'
 #' 2010 FIPS Codes for Counties and County Equivalent Entities.
