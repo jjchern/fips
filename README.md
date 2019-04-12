@@ -30,14 +30,20 @@ codes. The following datasets are available:
       - BEA Region codes.
         [(Source)](https://www.bea.gov/regional/docs/regions.cfm)
 
-For a similar implementation in Stata, see [`statastates` by
-`wschpero`.](https://github.com/wschpero/statastates)
+Similar implementation in Stata:
+
+  - [`statastates` by
+    `wschpero`](https://github.com/wschpero/statastates)
+
+Similar R packages:
+
+  - [`zipcodes` by `jacobkap`](https://github.com/jacobkap/zipcodes)
 
 # Installation
 
 ``` r
-# install.package("devtools")
-devtools::install_github("jjchern/fips@v0.0.3")
+# install.package("remotes")
+remotes::install_github("jjchern/fips@v0.0.3")
 
 # To uninstall the package, use:
 # remove.packages("fips")

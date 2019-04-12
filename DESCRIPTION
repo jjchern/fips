@@ -11,4 +11,4 @@ LazyData: TRUE
 Depends: R (>= 2.10)
 URL: http://github.com/jjchern/fips
 BugReports: https://github.com/jjchern/fips/issues
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
