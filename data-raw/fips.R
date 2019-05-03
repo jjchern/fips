@@ -64,7 +64,7 @@ readxl::read_xlsx(fil, skip = 1) %>%
            `County_Name` = X__2,
            `NOTE` = X__3) %>%
     mcga() %>%
-    mutate(countyfip = str_glue("{statefip}{countyfip}")) %>%
+    mutate(countyfip = paste0(statefip, countyfip)) %>%
     print() -> county_ipums_usa
 
 usethis::use_data(county_ipums_usa, overwrite = TRUE)
