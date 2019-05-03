@@ -1,5 +1,5 @@
 
-library(dplyr, warn.conflicts = FALSE)
+library(tidyverse)
 
 # FIPS codes for US states -------------------------------------------------
 
@@ -38,3 +38,33 @@ usethis::use_data(county, overwrite = TRUE)
 
 # Other Special Short Names
 # county %>% filter(!stringr::str_detect(county, "County|Borough|City and Borough|Census Area|Municipality|Municipio|Parish|city|City"))
+
+# Identified Counties in IPUMS USA ----------------------------------------
+
+url = "https://usa.ipums.org/usa/resources/volii/ipums_usa_identified_counties.xlsx"
+fil = "data-raw/ipums_usa_identified_counties.xlsx"
+if (!file.exists(fil)) download.file(url, fil)
+
+# Make column name great again (Modified Version)
+# Ref: https://github.com/hrbrmstr/docxtractr/blob/master/R/mcga.r
+mcga <- function(tbl) {
+
+    x <- colnames(tbl)
+    x <- tolower(x)
+    x <- gsub("_+", "_", x)
+    x <- gsub("(^_|_$)", "", x)
+    x <- make.unique(x, sep = "_")
+
+    colnames(tbl) <- x
+    tbl
+}
+
+readxl::read_xlsx(fil, skip = 1) %>%
+    rename(`State` = X__1,
+           `County_Name` = X__2,
+           `NOTE` = X__3) %>%
+    mcga() %>%
+    mutate(countyfip = str_glue("{statefip}{countyfip}")) %>%
+    print() -> county_ipums_usa
+
+usethis::use_data(county_ipums_usa, overwrite = TRUE)

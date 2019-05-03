@@ -26,6 +26,14 @@
 #' @source \url{https://www.census.gov/geo/reference/codes/cou.html}
 "county"
 
+#' Listing of Counties Identified in IPUMS USA
+#'
+#' Contains counties that are identified through the microdata maintained by
+#' IPUMS.
+#'
+#' @source \url{https://usa.ipums.org/usa-action/variables/COUNTYFIP#description_section}
+"county_ipums_usa"
+
 #' NCHS Urban-Rural Codes
 #'
 #' 2013, 2006, and 1990 NCHS Urban-Rural Classification Scheme for Counties.

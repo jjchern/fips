@@ -1,4 +1,8 @@
 
+# fips 0.0.4
+
+* Added `county_ipums_usa`
+
 # fips 0.0.3
 
 * Added `lower48`
