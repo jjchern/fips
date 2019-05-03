@@ -20,9 +20,13 @@ codes. The following datasets are available:
       - `fips::state` contains 50 states and the District of Columbia.
       - `fips::lower48` contains the 48 Contiguous Continental States
         and the District of Columbia.
-  - `fips::county`:
-      - 2010 county-level FIPS codes.
+  - `fips::county`, `fips::county_ipums_usa`
+      - County-level FIPS codes.
+      - `fips::county` contains 2010 county-level FIPS codes.
         [(Source)](https://www.census.gov/geo/reference/codes/cou.html)
+      - `fips::county_ipums_usa` contains counties that are identified
+        through the microdata maintained by IPUMS.
+        [(Source)](https://usa.ipums.org/usa-action/variables/COUNTYFIP#description_section)
   - `fips::nchs_urc`:
       - NCHS Urban-Rural Classification Scheme for Counties.
         [(Source)](https://www.cdc.gov/nchs/data_access/urban_rural.htm)
@@ -43,7 +47,7 @@ Similar R packages:
 
 ``` r
 # install.package("remotes")
-remotes::install_github("jjchern/fips@v0.0.3")
+remotes::install_github("jjchern/fips@v0.0.4")
 
 # To uninstall the package, use:
 # remove.packages("fips")
@@ -140,24 +144,50 @@ fips::county
 #> # ... with 3,225 more rows
 ```
 
+## Counties Identified in IPUMS USA (2005-forward)
+
+``` r
+fips::county_ipums_usa %>% 
+    select(countyfip, 
+           `2000 5% & 1% unwt, acs 2005`,
+           `acs 2006-2011`, 
+           `2010 10%, acs 2012-onward`) %>% 
+    na.omit() %>% 
+    select(countyfip)
+#> # A tibble: 331 x 1
+#>    countyfip
+#>    <chr>    
+#>  1 01003    
+#>  2 01015    
+#>  3 01055    
+#>  4 01073    
+#>  5 01081    
+#>  6 01097    
+#>  7 01117    
+#>  8 02020    
+#>  9 04005    
+#> 10 04013    
+#> # … with 321 more rows
+```
+
 ## BEA Region codes for states
 
 ``` r
 fips::bea_region
 #> # A tibble: 51 x 7
-#>    fips  usps  state  short_region_na… region_code region_name region_abbr
-#>    <chr> <chr> <chr>  <chr>                  <int> <chr>       <chr>      
-#>  1 09    CT    Conne… New England                1 New Englan… NENG       
-#>  2 23    ME    Maine  New England                1 New Englan… NENG       
-#>  3 25    MA    Massa… New England                1 New Englan… NENG       
-#>  4 33    NH    New H… New England                1 New Englan… NENG       
-#>  5 44    RI    Rhode… New England                1 New Englan… NENG       
-#>  6 50    VT    Vermo… New England                1 New Englan… NENG       
-#>  7 10    DE    Delaw… Mideast                    2 Mideast Re… MEST       
-#>  8 11    DC    Distr… Mideast                    2 Mideast Re… MEST       
-#>  9 24    MD    Maryl… Mideast                    2 Mideast Re… MEST       
-#> 10 34    NJ    New J… Mideast                    2 Mideast Re… MEST       
-#> # ... with 41 more rows
+#>    fips  usps  state   short_region_na… region_code region_name region_abbr
+#>    <chr> <chr> <chr>   <chr>                  <int> <chr>       <chr>      
+#>  1 09    CT    Connec… New England                1 New Englan… NENG       
+#>  2 23    ME    Maine   New England                1 New Englan… NENG       
+#>  3 25    MA    Massac… New England                1 New Englan… NENG       
+#>  4 33    NH    New Ha… New England                1 New Englan… NENG       
+#>  5 44    RI    Rhode … New England                1 New Englan… NENG       
+#>  6 50    VT    Vermont New England                1 New Englan… NENG       
+#>  7 10    DE    Delawa… Mideast                    2 Mideast Re… MEST       
+#>  8 11    DC    Distri… Mideast                    2 Mideast Re… MEST       
+#>  9 24    MD    Maryla… Mideast                    2 Mideast Re… MEST       
+#> 10 34    NJ    New Je… Mideast                    2 Mideast Re… MEST       
+#> # … with 41 more rows
 ```
 
 ![](README-files/bea_regions-1.png)<!-- -->
@@ -167,20 +197,19 @@ fips::bea_region
 ``` r
 fips::nchs_urc
 #> # A tibble: 3,147 x 10
-#>    usps  statefip fips  county   code2013  code2006 code1990 cbsatitle    
-#>    <chr> <chr>    <chr> <chr>    <dbl+lbl> <dbl+lb> <dbl+lb> <chr>        
-#>  1 AL    01       01001 Autauga… 3         3        3        Montgomery, …
-#>  2 AL    01       01003 Baldwin… 4         5        3        Daphne-Fairh…
-#>  3 AL    01       01005 Barbour… 6         5        5        ""           
-#>  4 AL    01       01007 Bibb Co… 2         2        6        Birmingham-H…
-#>  5 AL    01       01009 Blount … 2         2        3        Birmingham-H…
-#>  6 AL    01       01011 Bullock… 6         6        6        ""           
-#>  7 AL    01       01013 Butler … 6         6        6        ""           
-#>  8 AL    01       01015 Calhoun… 4         4        4        Anniston-Oxf…
-#>  9 AL    01       01017 Chamber… 5         5        6        Valley, AL   
-#> 10 AL    01       01019 Cheroke… 6         6        6        ""           
-#> # ... with 3,137 more rows, and 2 more variables: cbsapop <dbl>,
-#> #   ctypop <dbl>
+#>    usps  statefip fips  county code2013 code2006 code1990 cbsatitle cbsapop
+#>    <chr> <chr>    <chr> <chr>  <dbl+lb> <dbl+lb> <dbl+lb> <chr>       <dbl>
+#>  1 AL    01       01001 Autau… 3        3        3        Montgome…  377149
+#>  2 AL    01       01003 Baldw… 4        5        3        Daphne-F…  190790
+#>  3 AL    01       01005 Barbo… 6        5        5        ""             NA
+#>  4 AL    01       01007 Bibb … 2        2        6        Birmingh… 1136650
+#>  5 AL    01       01009 Bloun… 2        2        3        Birmingh… 1136650
+#>  6 AL    01       01011 Bullo… 6        6        6        ""             NA
+#>  7 AL    01       01013 Butle… 6        6        6        ""             NA
+#>  8 AL    01       01015 Calho… 4        4        4        Anniston…  117296
+#>  9 AL    01       01017 Chamb… 5        5        6        Valley, …   34064
+#> 10 AL    01       01019 Chero… 6        6        6        ""             NA
+#> # … with 3,137 more rows, and 1 more variable: ctypop <dbl>
 ```
 
 ![](README-files/nchs_urc_2013-1.png)<!-- -->

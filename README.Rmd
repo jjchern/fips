@@ -26,8 +26,10 @@ The R package `fips` makes it easier to merge geographic identifiers such as sta
     - `fips::state` contains 50 states and the District of Columbia.
     - `fips::lower48` contains the 48 Contiguous Continental States and the District of Columbia.
 
-- `fips::county`: 
-    - 2010 county-level FIPS codes. [(Source)](https://www.census.gov/geo/reference/codes/cou.html)
+- `fips::county`, `fips::county_ipums_usa`
+    - County-level FIPS codes.
+    - `fips::county` contains 2010 county-level FIPS codes. [(Source)](https://www.census.gov/geo/reference/codes/cou.html)
+    - `fips::county_ipums_usa` contains counties that are identified through the microdata maintained by IPUMS. [(Source)](https://usa.ipums.org/usa-action/variables/COUNTYFIP#description_section)
     
 - `fips::nchs_urc`: 
     - NCHS Urban-Rural Classification Scheme for Counties. [(Source)](https://www.cdc.gov/nchs/data_access/urban_rural.htm)
@@ -47,7 +49,7 @@ Similar R packages:
 
 ```r
 # install.package("remotes")
-remotes::install_github("jjchern/fips@v0.0.3")
+remotes::install_github("jjchern/fips@v0.0.4")
 
 # To uninstall the package, use:
 # remove.packages("fips")
@@ -73,6 +75,18 @@ fips::lower48
 
 ```{r}
 fips::county
+```
+
+## Counties Identified in IPUMS USA (2005-forward)
+
+```{r}
+fips::county_ipums_usa %>% 
+    select(countyfip, 
+           `2000 5% & 1% unwt, acs 2005`,
+           `acs 2006-2011`, 
+           `2010 10%, acs 2012-onward`) %>% 
+    na.omit() %>% 
+    select(countyfip)
 ```
 
 ## BEA Region codes for states
