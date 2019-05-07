@@ -5,12 +5,13 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FIPS Code for U.S. States and Counties. • fips</title>
+<title>FIPS Code for U.S. States and Counties and Related Crosswalk • fips</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="FIPS Code for U.S. States and Counties.">
-<meta property="og:description" content="Data for U.S. FIPS State and County Code and related classifications.">
+<script src="pkgdown.js"></script><meta property="og:title" content="FIPS Code for U.S. States and Counties and Related Crosswalk">
+<meta property="og:description" content="Contains data for U.S. FIPS State and County Code and related 
+        classifications.">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -30,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">fips</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.5</span>
       </span>
     </div>
 
@@ -76,7 +77,9 @@
 <div id="about-fips" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#about-fips" class="anchor"></a>About {fips}</h1></div>
-<p>The R package {fips} makes it easier to merge geographic identifiers such as state FIPS, county FIPS, urban-rural codes, and BEA region codes. The following datasets are available:</p>
+<p>The R package {fips} makes it easier to merge geographic identifiers such as state FIPS, county FIPS, urban-rural codes, BEA region codes, and census region and division codes.</p>
+<p>For an overview of regions of the United States, see the wiki page for <a href="https://en.wikipedia.org/wiki/List_of_regions_of_the_United_States">List of regions of the United States</a>.</p>
+<p>The following datasets are available:</p>
 <ul>
 <li>
 <code><a href="reference/fips.html">fips::fips</a></code>, <code><a href="reference/state.html">fips::state</a></code>, and <code><a href="reference/lower48.html">fips::lower48</a></code>:
@@ -117,14 +120,23 @@
 </li>
 </ul>
 </li>
+<li>
+<code><a href="reference/census_region_division.html">fips::census_region_division</a></code>:
+<ul>
+<li>Census Bureau region and division codes. <a href="https://www2.census.gov/programs-surveys/popest/geographies/2015/state-geocodes-v2015.txt">(Source)</a>
+</li>
 </ul>
+</li>
+</ul>
+<p>I might add other crosswalks for OMB standard federal regions, federal reserve districts, courts of appeals circuits, and Agricultural Research Service regions.</p>
 <p>Similar implementation in Stata:</p>
 <ul>
-<li><a href="https://github.com/wschpero/statastates"><code>statastates</code> by <code>wschpero</code></a></li>
+<li><a href="https://github.com/wschpero/statastates">{statastates} by <code>@wschpero</code></a></li>
 </ul>
 <p>Similar R packages:</p>
 <ul>
-<li><a href="https://github.com/jacobkap/zipcodes"><code>zipcodes</code> by <code>jacobkap</code></a></li>
+<li><a href="https://github.com/jacobkap/zipcodes">{zipcodes} by <code>@jacobkap</code></a></li>
+<li><a href="https://github.com/floswald/EconData">The dataset <code>US_states</code> in {EconData} by <code>@floswald</code></a></li>
 </ul>
 </div>
 <div id="installation" class="section level1">
@@ -134,7 +146,7 @@
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install.packages("remotes")</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2">remotes<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/remotes/topics/install_github">install_github</a></span>(<span class="st">"jjchern/fips"</span>)</a></code></pre></div>
 <p>Or install the most recent released version of {fips} from Github with:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">remotes<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/remotes/topics/install_github">install_github</a></span>(<span class="st">"jjchern/fips@v0.0.4"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">remotes<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/remotes/topics/install_github">install_github</a></span>(<span class="st">"jjchern/fips@v0.0.5"</span>)</a></code></pre></div>
 </div>
 <div id="usage" class="section level1">
 <h1 class="hasAnchor">
@@ -251,44 +263,65 @@
 <a class="sourceLine" id="cb5-20" data-line-number="20"><span class="co">#&gt; 10 04013    </span></a>
 <a class="sourceLine" id="cb5-21" data-line-number="21"><span class="co">#&gt; # … with 321 more rows</span></a></code></pre></div>
 </div>
+<div id="census-region-and-division-codes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#census-region-and-division-codes" class="anchor"></a>Census Region and Division Codes</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">fips<span class="op">::</span>census_region_division</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; # A tibble: 51 x 7</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt;    fips  usps  state       region_cd region_name division_cd division_name </span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;         </span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt;  1 01    AL    Alabama     3         South       6           East South Ce…</span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt;  2 02    AK    Alaska      4         West        9           Pacific       </span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt;  3 04    AZ    Arizona     4         West        8           Mountain      </span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">#&gt;  4 05    AR    Arkansas    3         South       7           West South Ce…</span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">#&gt;  5 06    CA    California  4         West        9           Pacific       </span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">#&gt;  6 08    CO    Colorado    4         West        8           Mountain      </span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">#&gt;  7 09    CT    Connecticut 1         Northeast   1           New England   </span></a>
+<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co">#&gt;  8 10    DE    Delaware    3         South       5           South Atlantic</span></a>
+<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co">#&gt;  9 11    DC    District o… 3         South       5           South Atlantic</span></a>
+<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">#&gt; 10 12    FL    Florida     3         South       5           South Atlantic</span></a>
+<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co">#&gt; # … with 41 more rows</span></a></code></pre></div>
+<p><img src="README-files/census_regions-1.png" width="700"></p>
+<p><img src="README-files/census_division-1.png" width="700"></p>
+</div>
 <div id="bea-region-codes-for-states" class="section level2">
 <h2 class="hasAnchor">
 <a href="#bea-region-codes-for-states" class="anchor"></a>BEA Region codes for states</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">fips<span class="op">::</span>bea_region</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; # A tibble: 51 x 7</span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt;    fips  usps  state   short_region_na… region_code region_name region_abbr</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;                  &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;      </span></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt;  1 09    CT    Connec… New England                1 New Englan… NENG       </span></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt;  2 23    ME    Maine   New England                1 New Englan… NENG       </span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt;  3 25    MA    Massac… New England                1 New Englan… NENG       </span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">#&gt;  4 33    NH    New Ha… New England                1 New Englan… NENG       </span></a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">#&gt;  5 44    RI    Rhode … New England                1 New Englan… NENG       </span></a>
-<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">#&gt;  6 50    VT    Vermont New England                1 New Englan… NENG       </span></a>
-<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">#&gt;  7 10    DE    Delawa… Mideast                    2 Mideast Re… MEST       </span></a>
-<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co">#&gt;  8 11    DC    Distri… Mideast                    2 Mideast Re… MEST       </span></a>
-<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co">#&gt;  9 24    MD    Maryla… Mideast                    2 Mideast Re… MEST       </span></a>
-<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">#&gt; 10 34    NJ    New Je… Mideast                    2 Mideast Re… MEST       </span></a>
-<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co">#&gt; # … with 41 more rows</span></a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">fips<span class="op">::</span>bea_region</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co">#&gt; # A tibble: 51 x 7</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#&gt;    fips  usps  state   short_region_na… region_code region_name region_abbr</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;                  &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;      </span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt;  1 09    CT    Connec… New England                1 New Englan… NENG       </span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#&gt;  2 23    ME    Maine   New England                1 New Englan… NENG       </span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt;  3 25    MA    Massac… New England                1 New Englan… NENG       </span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">#&gt;  4 33    NH    New Ha… New England                1 New Englan… NENG       </span></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="co">#&gt;  5 44    RI    Rhode … New England                1 New Englan… NENG       </span></a>
+<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">#&gt;  6 50    VT    Vermont New England                1 New Englan… NENG       </span></a>
+<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="co">#&gt;  7 10    DE    Delawa… Mideast                    2 Mideast Re… MEST       </span></a>
+<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="co">#&gt;  8 11    DC    Distri… Mideast                    2 Mideast Re… MEST       </span></a>
+<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="co">#&gt;  9 24    MD    Maryla… Mideast                    2 Mideast Re… MEST       </span></a>
+<a class="sourceLine" id="cb7-14" data-line-number="14"><span class="co">#&gt; 10 34    NJ    New Je… Mideast                    2 Mideast Re… MEST       </span></a>
+<a class="sourceLine" id="cb7-15" data-line-number="15"><span class="co">#&gt; # … with 41 more rows</span></a></code></pre></div>
 <p><img src="README-files/bea_regions-1.png" width="700"></p>
 </div>
 <div id="nchs-urban-rural-codes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#nchs-urban-rural-codes" class="anchor"></a>NCHS Urban Rural Codes</h2>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">fips<span class="op">::</span>nchs_urc</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co">#&gt; # A tibble: 3,147 x 10</span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#&gt;    usps  statefip fips  county code2013 code2006 code1990 cbsatitle cbsapop</span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;  &lt;dbl+lb&gt; &lt;dbl+lb&gt; &lt;dbl+lb&gt; &lt;chr&gt;       &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt;  1 AL    01       01001 Autau… 3        3        3        Montgome…  377149</span></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#&gt;  2 AL    01       01003 Baldw… 4        5        3        Daphne-F…  190790</span></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt;  3 AL    01       01005 Barbo… 6        5        5        ""             NA</span></a>
-<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">#&gt;  4 AL    01       01007 Bibb … 2        2        6        Birmingh… 1136650</span></a>
-<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="co">#&gt;  5 AL    01       01009 Bloun… 2        2        3        Birmingh… 1136650</span></a>
-<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">#&gt;  6 AL    01       01011 Bullo… 6        6        6        ""             NA</span></a>
-<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="co">#&gt;  7 AL    01       01013 Butle… 6        6        6        ""             NA</span></a>
-<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="co">#&gt;  8 AL    01       01015 Calho… 4        4        4        Anniston…  117296</span></a>
-<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="co">#&gt;  9 AL    01       01017 Chamb… 5        5        6        Valley, …   34064</span></a>
-<a class="sourceLine" id="cb7-14" data-line-number="14"><span class="co">#&gt; 10 AL    01       01019 Chero… 6        6        6        ""             NA</span></a>
-<a class="sourceLine" id="cb7-15" data-line-number="15"><span class="co">#&gt; # … with 3,137 more rows, and 1 more variable: ctypop &lt;dbl&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">fips<span class="op">::</span>nchs_urc</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">#&gt; # A tibble: 3,147 x 10</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">#&gt;    usps  statefip fips  county code2013 code2006 code1990 cbsatitle cbsapop</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;  &lt;dbl+lb&gt; &lt;dbl+lb&gt; &lt;dbl+lb&gt; &lt;chr&gt;       &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt;  1 AL    01       01001 Autau… 3        3        3        Montgome…  377149</span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">#&gt;  2 AL    01       01003 Baldw… 4        5        3        Daphne-F…  190790</span></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co">#&gt;  3 AL    01       01005 Barbo… 6        5        5        ""             NA</span></a>
+<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="co">#&gt;  4 AL    01       01007 Bibb … 2        2        6        Birmingh… 1136650</span></a>
+<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="co">#&gt;  5 AL    01       01009 Bloun… 2        2        3        Birmingh… 1136650</span></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="co">#&gt;  6 AL    01       01011 Bullo… 6        6        6        ""             NA</span></a>
+<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="co">#&gt;  7 AL    01       01013 Butle… 6        6        6        ""             NA</span></a>
+<a class="sourceLine" id="cb8-12" data-line-number="12"><span class="co">#&gt;  8 AL    01       01015 Calho… 4        4        4        Anniston…  117296</span></a>
+<a class="sourceLine" id="cb8-13" data-line-number="13"><span class="co">#&gt;  9 AL    01       01017 Chamb… 5        5        6        Valley, …   34064</span></a>
+<a class="sourceLine" id="cb8-14" data-line-number="14"><span class="co">#&gt; 10 AL    01       01019 Chero… 6        6        6        ""             NA</span></a>
+<a class="sourceLine" id="cb8-15" data-line-number="15"><span class="co">#&gt; # … with 3,137 more rows, and 1 more variable: ctypop &lt;dbl&gt;</span></a></code></pre></div>
 <p><img src="README-files/nchs_urc_2013-1.png" width="700"></p>
 <p><img src="README-files/nchs_urc_2006-1.png" width="700"></p>
 <p><img src="README-files/nchs_urc_1990-1.png" width="700"></p>
