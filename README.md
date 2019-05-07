@@ -9,8 +9,14 @@ Status](https://ci.appveyor.com/api/projects/status/github/jjchern/fips?branch=m
 # About {fips}
 
 The R package {fips} makes it easier to merge geographic identifiers
-such as state FIPS, county FIPS, urban-rural codes, and BEA region
-codes. The following datasets are available:
+such as state FIPS, county FIPS, urban-rural codes, BEA region codes,
+and census region and division codes.
+
+For an overview of regions of the United States, see the wiki page for
+[List of regions of the United
+States](https://en.wikipedia.org/wiki/List_of_regions_of_the_United_States).
+
+The following datasets are available:
 
   - `fips::fips`, `fips::state`, and `fips::lower48`:
       - State-level FIPS codes.
@@ -33,6 +39,13 @@ codes. The following datasets are available:
   - `fips::bea_region`:
       - BEA Region codes.
         [(Source)](https://www.bea.gov/regional/docs/regions.cfm)
+  - `fips::census_region_division`:
+      - Census Bureau region and division codes.
+        [(Source)](https://www2.census.gov/programs-surveys/popest/geographies/2015/state-geocodes-v2015.txt)
+
+I might add other crosswalks for OMB standard federal regions, federal
+reserve districts, courts of appeals circuits, and Agricultural Research
+Service regions.
 
 Similar implementation in Stata:
 
@@ -42,7 +55,7 @@ Similar implementation in Stata:
 Similar R packages:
 
   - [{zipcodes} by `@jacobkap`](https://github.com/jacobkap/zipcodes)
-  - [The data set `US_states` in {EconData} by
+  - [The dataset `US_states` in {EconData} by
     `@floswald`](https://github.com/floswald/EconData)
 
 # Installation
@@ -57,7 +70,7 @@ remotes::install_github("jjchern/fips")
 Or install the most recent released version of {fips} from Github with:
 
 ``` r
-remotes::install_github("jjchern/fips@v0.0.4")
+remotes::install_github("jjchern/fips@v0.0.5")
 ```
 
 # Usage
@@ -176,6 +189,30 @@ fips::county_ipums_usa %>%
 #> 10 04013    
 #> # … with 321 more rows
 ```
+
+## Census Region and Division Codes
+
+``` r
+fips::census_region_division
+#> # A tibble: 51 x 7
+#>    fips  usps  state       region_cd region_name division_cd division_name 
+#>    <chr> <chr> <chr>       <chr>     <chr>       <chr>       <chr>         
+#>  1 01    AL    Alabama     3         South       6           East South Ce…
+#>  2 02    AK    Alaska      4         West        9           Pacific       
+#>  3 04    AZ    Arizona     4         West        8           Mountain      
+#>  4 05    AR    Arkansas    3         South       7           West South Ce…
+#>  5 06    CA    California  4         West        9           Pacific       
+#>  6 08    CO    Colorado    4         West        8           Mountain      
+#>  7 09    CT    Connecticut 1         Northeast   1           New England   
+#>  8 10    DE    Delaware    3         South       5           South Atlantic
+#>  9 11    DC    District o… 3         South       5           South Atlantic
+#> 10 12    FL    Florida     3         South       5           South Atlantic
+#> # … with 41 more rows
+```
+
+![](README-files/census_regions-1.png)<!-- -->
+
+![](README-files/census_division-1.png)<!-- -->
 
 ## BEA Region codes for states
 

@@ -18,7 +18,11 @@ knitr::opts_chunk$set(
 
 # About {fips}
 
-The R package {fips} makes it easier to merge geographic identifiers such as state FIPS, county FIPS, urban-rural codes, and BEA region codes. The following datasets are available:
+The R package {fips} makes it easier to merge geographic identifiers such as state FIPS, county FIPS, urban-rural codes, BEA region codes, and census region and division codes. 
+
+For an overview of regions of the United States, see the wiki page for [List of regions of the United States](https://en.wikipedia.org/wiki/List_of_regions_of_the_United_States). 
+
+The following datasets are available:
 
 - `fips::fips`, `fips::state`, and `fips::lower48`: 
     - State-level FIPS codes. [(Source)](https://www.census.gov/geo/reference/ansi_statetables.html)
@@ -36,6 +40,11 @@ The R package {fips} makes it easier to merge geographic identifiers such as sta
     
 - `fips::bea_region`:
     - BEA Region codes. [(Source)](https://www.bea.gov/regional/docs/regions.cfm)
+    
+- `fips::census_region_division`:
+    - Census Bureau region and division codes. [(Source)](https://www2.census.gov/programs-surveys/popest/geographies/2015/state-geocodes-v2015.txt)
+    
+I might add other crosswalks for OMB standard federal regions, federal reserve districts, courts of appeals circuits, and Agricultural Research Service regions.
     
 Similar implementation in Stata:
 
@@ -58,7 +67,7 @@ remotes::install_github("jjchern/fips")
 Or install the most recent released version of {fips} from Github with:
 
 ``` r
-remotes::install_github("jjchern/fips@v0.0.4")
+remotes::install_github("jjchern/fips@v0.0.5")
 ```
 
 # Usage
@@ -93,6 +102,50 @@ fips::county_ipums_usa %>%
            `2010 10%, acs 2012-onward`) %>% 
     na.omit() %>% 
     select(countyfip)
+```
+
+## Census Region and Division Codes
+
+```{r}
+fips::census_region_division
+```
+
+```{r census_regions, echo=FALSE, warning=FALSE, message=FALSE}
+right_join(usmapdata::state, fips::census_region_division,
+           by = c("id" = "fips")) %>% 
+    haven::as_factor() -> census_region_division
+
+ggplot() +
+    geom_map(data = census_region_division, map = census_region_division,
+             aes(x = long, y = lat, map_id = id, fill = region_name),
+             colour = alpha("white", 0.1), size = 0.2) +
+    geom_map(data = usmapdata::state, map = usmapdata::state,
+             aes(x = long, y = lat, map_id = id),
+             colour = alpha("white", 0.75), fill = "NA") +        
+    coord_map("albers", lat0 = 30, lat1 = 40) +
+    viridis::scale_fill_viridis(option = "C", discrete = TRUE) +
+    ggtitle("Component State for Census Regions") +
+    ggthemes::theme_map() +
+    theme(legend.position = c(.82, .4),
+          legend.title = element_blank(), 
+          plot.title = element_text(hjust = 0.5))
+```
+
+```{r census_division, echo=FALSE, warning=FALSE, message=FALSE}
+ggplot() +
+    geom_map(data = census_region_division, map = census_region_division,
+             aes(x = long, y = lat, map_id = id, fill = division_name),
+             colour = alpha("white", 0.1), size = 0.2) +
+    geom_map(data = usmapdata::state, map = usmapdata::state,
+             aes(x = long, y = lat, map_id = id),
+             colour = alpha("white", 0.75), fill = "NA") +        
+    coord_map("albers", lat0 = 30, lat1 = 40) +
+    viridis::scale_fill_viridis(option = "C", discrete = TRUE) +
+    ggtitle("Component State for Census Divisions") +
+    ggthemes::theme_map() +
+    theme(legend.position = c(.82, .2),
+          legend.title = element_blank(), 
+          plot.title = element_text(hjust = 0.5))
 ```
 
 ## BEA Region codes for states

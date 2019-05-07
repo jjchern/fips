@@ -50,7 +50,7 @@
 
 #' Census Bureau Region and Division Codes
 #'
-#' Contains crosswalk of Census region and division and state FIPS code.
+#' Contains crosswalk of census region and division and state FIPS code.
 #'
 #' @md
 #' @source [U.S. Census Bureau, Population Division](https://www2.census.gov/programs-surveys/popest/geographies/2015/)

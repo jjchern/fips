@@ -12,6 +12,6 @@
 census_region_division
 }
 \description{
-Contains crosswalk of Census region and division and state FIPS code.
+Contains crosswalk of census region and division and state FIPS code.
 }
 \keyword{datasets}
