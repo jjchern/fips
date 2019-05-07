@@ -47,3 +47,11 @@
 #'
 #' @source \url{https://www.bea.gov/regional/docs/regions.cfm}
 "bea_region"
+
+#' Census Bureau Region and Division Codes
+#'
+#' Contains crosswalk of Census region and division and state FIPS code.
+#'
+#' @md
+#' @source [U.S. Census Bureau, Population Division](https://www2.census.gov/programs-surveys/popest/geographies/2015/)
+"census_region_division"

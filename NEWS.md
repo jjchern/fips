@@ -1,4 +1,8 @@
 
+# fips 0.0.5
+
+* Added `census_region_division`
+
 # fips 0.0.4
 
 * Added `county_ipums_usa`

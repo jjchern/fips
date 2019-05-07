@@ -1,11 +1,12 @@
 Package: fips
 Type: Package
-Title: FIPS Code for U.S. States and Counties.
-Version: 0.0.4
+Title: FIPS Code for U.S. States and Counties and Related Crosswalk
+Version: 0.0.5
 Authors@R: c(person("JJ", "Chen", email = "jiajia.chern@gmail.com", 
              role = c("aut", "cre"),
              comment = c(ORCID = "0000-0001-8482-8398")))
-Description: Data for U.S. FIPS State and County Code and related classifications.
+Description: Contains data for U.S. FIPS State and County Code and related 
+        classifications.
 License: CC0
 LazyData: TRUE
 Depends: R (>= 2.10)
