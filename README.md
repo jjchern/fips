@@ -36,12 +36,14 @@ codes. The following datasets are available:
 
 Similar implementation in Stata:
 
-  - [`statastates` by
-    `wschpero`](https://github.com/wschpero/statastates)
+  - [{statastates} by
+    `@wschpero`](https://github.com/wschpero/statastates)
 
 Similar R packages:
 
-  - [`zipcodes` by `jacobkap`](https://github.com/jacobkap/zipcodes)
+  - [{zipcodes} by `@jacobkap`](https://github.com/jacobkap/zipcodes)
+  - [The data set `US_states` in {EconData} by
+    `@floswald`](https://github.com/floswald/EconData)
 
 # Installation
 
