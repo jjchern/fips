@@ -96,12 +96,13 @@ fips::county
 
 ```{r}
 fips::county_ipums_usa %>% 
-    select(countyfip, 
+    select(state, countyfip, county_name,
            `2000 5% & 1% unwt, acs 2005`,
            `acs 2006-2011`, 
            `2010 10%, acs 2012-onward`) %>% 
     na.omit() %>% 
-    select(countyfip)
+    select(state, countyfip, county_name) %>% 
+    knitr::kable()
 ```
 
 ## Census Region and Division Codes

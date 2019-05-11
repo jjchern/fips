@@ -242,26 +242,1677 @@
 <h2 class="hasAnchor">
 <a href="#counties-identified-in-ipums-usa-2005-forward" class="anchor"></a>Counties Identified in IPUMS USA (2005-forward)</h2>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">fips<span class="op">::</span>county_ipums_usa <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">    </span><span class="kw">select</span>(countyfip, </a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">    </span><span class="kw">select</span>(state, countyfip, county_name,</a>
 <a class="sourceLine" id="cb5-3" data-line-number="3">           <span class="st">`</span><span class="dt">2000 5% &amp; 1% unwt, acs 2005</span><span class="st">`</span>,</a>
 <a class="sourceLine" id="cb5-4" data-line-number="4">           <span class="st">`</span><span class="dt">acs 2006-2011</span><span class="st">`</span>, </a>
 <a class="sourceLine" id="cb5-5" data-line-number="5">           <span class="st">`</span><span class="dt">2010 10%, acs 2012-onward</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb5-6" data-line-number="6"><span class="st">    </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/na.fail">na.omit</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="st">    </span><span class="kw">select</span>(countyfip)</a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt; # A tibble: 331 x 1</span></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt;    countyfip</span></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt;    &lt;chr&gt;    </span></a>
-<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#&gt;  1 01003    </span></a>
-<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">#&gt;  2 01015    </span></a>
-<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">#&gt;  3 01055    </span></a>
-<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co">#&gt;  4 01073    </span></a>
-<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">#&gt;  5 01081    </span></a>
-<a class="sourceLine" id="cb5-16" data-line-number="16"><span class="co">#&gt;  6 01097    </span></a>
-<a class="sourceLine" id="cb5-17" data-line-number="17"><span class="co">#&gt;  7 01117    </span></a>
-<a class="sourceLine" id="cb5-18" data-line-number="18"><span class="co">#&gt;  8 02020    </span></a>
-<a class="sourceLine" id="cb5-19" data-line-number="19"><span class="co">#&gt;  9 04005    </span></a>
-<a class="sourceLine" id="cb5-20" data-line-number="20"><span class="co">#&gt; 10 04013    </span></a>
-<a class="sourceLine" id="cb5-21" data-line-number="21"><span class="co">#&gt; # … with 321 more rows</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="st">    </span><span class="kw">select</span>(state, countyfip, county_name) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="st">    </span>knitr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/knitr/topics/kable">kable</a></span>()</a></code></pre></div>
+<table class="table table">
+<thead><tr class="header">
+<th align="left">state</th>
+<th align="left">countyfip</th>
+<th align="left">county_name</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Alabama</td>
+<td align="left">01003</td>
+<td align="left">Baldwin</td>
+</tr>
+<tr class="even">
+<td align="left">Alabama</td>
+<td align="left">01015</td>
+<td align="left">Calhoun/Benton</td>
+</tr>
+<tr class="odd">
+<td align="left">Alabama</td>
+<td align="left">01055</td>
+<td align="left">Etowah</td>
+</tr>
+<tr class="even">
+<td align="left">Alabama</td>
+<td align="left">01073</td>
+<td align="left">Jefferson</td>
+</tr>
+<tr class="odd">
+<td align="left">Alabama</td>
+<td align="left">01081</td>
+<td align="left">Lee</td>
+</tr>
+<tr class="even">
+<td align="left">Alabama</td>
+<td align="left">01097</td>
+<td align="left">Mobile</td>
+</tr>
+<tr class="odd">
+<td align="left">Alabama</td>
+<td align="left">01117</td>
+<td align="left">Shelby</td>
+</tr>
+<tr class="even">
+<td align="left">Alaska</td>
+<td align="left">02020</td>
+<td align="left">Anchorage</td>
+</tr>
+<tr class="odd">
+<td align="left">Arizona</td>
+<td align="left">04005</td>
+<td align="left">Coconino</td>
+</tr>
+<tr class="even">
+<td align="left">Arizona</td>
+<td align="left">04013</td>
+<td align="left">Maricopa</td>
+</tr>
+<tr class="odd">
+<td align="left">Arizona</td>
+<td align="left">04019</td>
+<td align="left">Pima</td>
+</tr>
+<tr class="even">
+<td align="left">Arizona</td>
+<td align="left">04025</td>
+<td align="left">Yavapai</td>
+</tr>
+<tr class="odd">
+<td align="left">Arizona</td>
+<td align="left">04027</td>
+<td align="left">Yuma</td>
+</tr>
+<tr class="even">
+<td align="left">Arkansas</td>
+<td align="left">05007</td>
+<td align="left">Benton</td>
+</tr>
+<tr class="odd">
+<td align="left">Arkansas</td>
+<td align="left">05119</td>
+<td align="left">Pulaski</td>
+</tr>
+<tr class="even">
+<td align="left">Arkansas</td>
+<td align="left">05143</td>
+<td align="left">Washington</td>
+</tr>
+<tr class="odd">
+<td align="left">California</td>
+<td align="left">06001</td>
+<td align="left">Alameda</td>
+</tr>
+<tr class="even">
+<td align="left">California</td>
+<td align="left">06007</td>
+<td align="left">Butte</td>
+</tr>
+<tr class="odd">
+<td align="left">California</td>
+<td align="left">06013</td>
+<td align="left">Contra Costa</td>
+</tr>
+<tr class="even">
+<td align="left">California</td>
+<td align="left">06017</td>
+<td align="left">El Dorado</td>
+</tr>
+<tr class="odd">
+<td align="left">California</td>
+<td align="left">06019</td>
+<td align="left">Fresno</td>
+</tr>
+<tr class="even">
+<td align="left">California</td>
+<td align="left">06023</td>
+<td align="left">Humboldt</td>
+</tr>
+<tr class="odd">
+<td align="left">California</td>
+<td align="left">06025</td>
+<td align="left">Imperial</td>
+</tr>
+<tr class="even">
+<td align="left">California</td>
+<td align="left">06029</td>
+<td align="left">Kern</td>
+</tr>
+<tr class="odd">
+<td align="left">California</td>
+<td align="left">06031</td>
+<td align="left">Kings</td>
+</tr>
+<tr class="even">
+<td align="left">California</td>
+<td align="left">06037</td>
+<td align="left">Los Angeles</td>
+</tr>
+<tr class="odd">
+<td align="left">California</td>
+<td align="left">06039</td>
+<td align="left">Madera</td>
+</tr>
+<tr class="even">
+<td align="left">California</td>
+<td align="left">06041</td>
+<td align="left">Marin</td>
+</tr>
+<tr class="odd">
+<td align="left">California</td>
+<td align="left">06047</td>
+<td align="left">Merced</td>
+</tr>
+<tr class="even">
+<td align="left">California</td>
+<td align="left">06055</td>
+<td align="left">Napa</td>
+</tr>
+<tr class="odd">
+<td align="left">California</td>
+<td align="left">06059</td>
+<td align="left">Orange</td>
+</tr>
+<tr class="even">
+<td align="left">California</td>
+<td align="left">06061</td>
+<td align="left">Placer</td>
+</tr>
+<tr class="odd">
+<td align="left">California</td>
+<td align="left">06065</td>
+<td align="left">Riverside</td>
+</tr>
+<tr class="even">
+<td align="left">California</td>
+<td align="left">06067</td>
+<td align="left">Sacramento</td>
+</tr>
+<tr class="odd">
+<td align="left">California</td>
+<td align="left">06071</td>
+<td align="left">San Bernardino</td>
+</tr>
+<tr class="even">
+<td align="left">California</td>
+<td align="left">06073</td>
+<td align="left">San Diego</td>
+</tr>
+<tr class="odd">
+<td align="left">California</td>
+<td align="left">06075</td>
+<td align="left">San Francisco</td>
+</tr>
+<tr class="even">
+<td align="left">California</td>
+<td align="left">06077</td>
+<td align="left">San Joaquin</td>
+</tr>
+<tr class="odd">
+<td align="left">California</td>
+<td align="left">06079</td>
+<td align="left">San Luis Obispo</td>
+</tr>
+<tr class="even">
+<td align="left">California</td>
+<td align="left">06081</td>
+<td align="left">San Mateo</td>
+</tr>
+<tr class="odd">
+<td align="left">California</td>
+<td align="left">06083</td>
+<td align="left">Santa Barbara</td>
+</tr>
+<tr class="even">
+<td align="left">California</td>
+<td align="left">06085</td>
+<td align="left">Santa Clara</td>
+</tr>
+<tr class="odd">
+<td align="left">California</td>
+<td align="left">06087</td>
+<td align="left">Santa Cruz</td>
+</tr>
+<tr class="even">
+<td align="left">California</td>
+<td align="left">06089</td>
+<td align="left">Shasta</td>
+</tr>
+<tr class="odd">
+<td align="left">California</td>
+<td align="left">06095</td>
+<td align="left">Solano</td>
+</tr>
+<tr class="even">
+<td align="left">California</td>
+<td align="left">06097</td>
+<td align="left">Sonoma</td>
+</tr>
+<tr class="odd">
+<td align="left">California</td>
+<td align="left">06099</td>
+<td align="left">Stanislaus</td>
+</tr>
+<tr class="even">
+<td align="left">California</td>
+<td align="left">06107</td>
+<td align="left">Tulare</td>
+</tr>
+<tr class="odd">
+<td align="left">California</td>
+<td align="left">06111</td>
+<td align="left">Ventura</td>
+</tr>
+<tr class="even">
+<td align="left">California</td>
+<td align="left">06113</td>
+<td align="left">Yolo</td>
+</tr>
+<tr class="odd">
+<td align="left">Connecticut</td>
+<td align="left">09001</td>
+<td align="left">Fairfield</td>
+</tr>
+<tr class="even">
+<td align="left">Connecticut</td>
+<td align="left">09003</td>
+<td align="left">Hartford</td>
+</tr>
+<tr class="odd">
+<td align="left">Connecticut</td>
+<td align="left">09005</td>
+<td align="left">Litchfield</td>
+</tr>
+<tr class="even">
+<td align="left">Connecticut</td>
+<td align="left">09007</td>
+<td align="left">Middlesex</td>
+</tr>
+<tr class="odd">
+<td align="left">Connecticut</td>
+<td align="left">09009</td>
+<td align="left">New Haven</td>
+</tr>
+<tr class="even">
+<td align="left">Connecticut</td>
+<td align="left">09011</td>
+<td align="left">New London</td>
+</tr>
+<tr class="odd">
+<td align="left">Connecticut</td>
+<td align="left">09013</td>
+<td align="left">Tolland</td>
+</tr>
+<tr class="even">
+<td align="left">Connecticut</td>
+<td align="left">09015</td>
+<td align="left">Windham</td>
+</tr>
+<tr class="odd">
+<td align="left">Delaware</td>
+<td align="left">10001</td>
+<td align="left">Kent</td>
+</tr>
+<tr class="even">
+<td align="left">Delaware</td>
+<td align="left">10003</td>
+<td align="left">New Castle</td>
+</tr>
+<tr class="odd">
+<td align="left">Delaware</td>
+<td align="left">10005</td>
+<td align="left">Sussex</td>
+</tr>
+<tr class="even">
+<td align="left">District of Columbia</td>
+<td align="left">11001</td>
+<td align="left">District of Columbia</td>
+</tr>
+<tr class="odd">
+<td align="left">Florida</td>
+<td align="left">12001</td>
+<td align="left">Alachua</td>
+</tr>
+<tr class="even">
+<td align="left">Florida</td>
+<td align="left">12009</td>
+<td align="left">Brevard/St Lucie</td>
+</tr>
+<tr class="odd">
+<td align="left">Florida</td>
+<td align="left">12011</td>
+<td align="left">Broward</td>
+</tr>
+<tr class="even">
+<td align="left">Florida</td>
+<td align="left">12015</td>
+<td align="left">Charlotte</td>
+</tr>
+<tr class="odd">
+<td align="left">Florida</td>
+<td align="left">12019</td>
+<td align="left">Clay</td>
+</tr>
+<tr class="even">
+<td align="left">Florida</td>
+<td align="left">12021</td>
+<td align="left">Collier</td>
+</tr>
+<tr class="odd">
+<td align="left">Florida</td>
+<td align="left">12033</td>
+<td align="left">Escambia</td>
+</tr>
+<tr class="even">
+<td align="left">Florida</td>
+<td align="left">12053</td>
+<td align="left">Hernando/Benton</td>
+</tr>
+<tr class="odd">
+<td align="left">Florida</td>
+<td align="left">12057</td>
+<td align="left">Hillsborough</td>
+</tr>
+<tr class="even">
+<td align="left">Florida</td>
+<td align="left">12071</td>
+<td align="left">Lee</td>
+</tr>
+<tr class="odd">
+<td align="left">Florida</td>
+<td align="left">12081</td>
+<td align="left">Manatee</td>
+</tr>
+<tr class="even">
+<td align="left">Florida</td>
+<td align="left">12083</td>
+<td align="left">Marion</td>
+</tr>
+<tr class="odd">
+<td align="left">Florida</td>
+<td align="left">12085</td>
+<td align="left">Martin</td>
+</tr>
+<tr class="even">
+<td align="left">Florida</td>
+<td align="left">12091</td>
+<td align="left">Okaloosa</td>
+</tr>
+<tr class="odd">
+<td align="left">Florida</td>
+<td align="left">12095</td>
+<td align="left">Orange/Mesquito</td>
+</tr>
+<tr class="even">
+<td align="left">Florida</td>
+<td align="left">12097</td>
+<td align="left">Osceola</td>
+</tr>
+<tr class="odd">
+<td align="left">Florida</td>
+<td align="left">12099</td>
+<td align="left">Palm Beach</td>
+</tr>
+<tr class="even">
+<td align="left">Florida</td>
+<td align="left">12101</td>
+<td align="left">Pasco</td>
+</tr>
+<tr class="odd">
+<td align="left">Florida</td>
+<td align="left">12103</td>
+<td align="left">Pinellas</td>
+</tr>
+<tr class="even">
+<td align="left">Florida</td>
+<td align="left">12105</td>
+<td align="left">Polk</td>
+</tr>
+<tr class="odd">
+<td align="left">Florida</td>
+<td align="left">12111</td>
+<td align="left">St Lucie</td>
+</tr>
+<tr class="even">
+<td align="left">Florida</td>
+<td align="left">12113</td>
+<td align="left">Santa Rosa</td>
+</tr>
+<tr class="odd">
+<td align="left">Florida</td>
+<td align="left">12115</td>
+<td align="left">Sarasota</td>
+</tr>
+<tr class="even">
+<td align="left">Florida</td>
+<td align="left">12117</td>
+<td align="left">Seminole</td>
+</tr>
+<tr class="odd">
+<td align="left">Georgia</td>
+<td align="left">13021</td>
+<td align="left">Bibb</td>
+</tr>
+<tr class="even">
+<td align="left">Georgia</td>
+<td align="left">13051</td>
+<td align="left">Chatham</td>
+</tr>
+<tr class="odd">
+<td align="left">Georgia</td>
+<td align="left">13057</td>
+<td align="left">Cherokee</td>
+</tr>
+<tr class="even">
+<td align="left">Georgia</td>
+<td align="left">13063</td>
+<td align="left">Clayton</td>
+</tr>
+<tr class="odd">
+<td align="left">Georgia</td>
+<td align="left">13067</td>
+<td align="left">Cobb</td>
+</tr>
+<tr class="even">
+<td align="left">Georgia</td>
+<td align="left">13135</td>
+<td align="left">Gwinnett</td>
+</tr>
+<tr class="odd">
+<td align="left">Georgia</td>
+<td align="left">13139</td>
+<td align="left">Hall</td>
+</tr>
+<tr class="even">
+<td align="left">Georgia</td>
+<td align="left">13151</td>
+<td align="left">Henry</td>
+</tr>
+<tr class="odd">
+<td align="left">Georgia</td>
+<td align="left">13245</td>
+<td align="left">Richmond</td>
+</tr>
+<tr class="even">
+<td align="left">Hawaii</td>
+<td align="left">15001</td>
+<td align="left">Hawaii</td>
+</tr>
+<tr class="odd">
+<td align="left">Hawaii</td>
+<td align="left">15003</td>
+<td align="left">Honolulu</td>
+</tr>
+<tr class="even">
+<td align="left">Illinois</td>
+<td align="left">17019</td>
+<td align="left">Champaign</td>
+</tr>
+<tr class="odd">
+<td align="left">Illinois</td>
+<td align="left">17031</td>
+<td align="left">Cook</td>
+</tr>
+<tr class="even">
+<td align="left">Illinois</td>
+<td align="left">17043</td>
+<td align="left">Du Page</td>
+</tr>
+<tr class="odd">
+<td align="left">Illinois</td>
+<td align="left">17091</td>
+<td align="left">Kankakee</td>
+</tr>
+<tr class="even">
+<td align="left">Illinois</td>
+<td align="left">17097</td>
+<td align="left">Lake</td>
+</tr>
+<tr class="odd">
+<td align="left">Illinois</td>
+<td align="left">17099</td>
+<td align="left">LaSalle</td>
+</tr>
+<tr class="even">
+<td align="left">Illinois</td>
+<td align="left">17113</td>
+<td align="left">McLean</td>
+</tr>
+<tr class="odd">
+<td align="left">Illinois</td>
+<td align="left">17115</td>
+<td align="left">Macon</td>
+</tr>
+<tr class="even">
+<td align="left">Illinois</td>
+<td align="left">17179</td>
+<td align="left">Tazewell</td>
+</tr>
+<tr class="odd">
+<td align="left">Indiana</td>
+<td align="left">18003</td>
+<td align="left">Allen</td>
+</tr>
+<tr class="even">
+<td align="left">Indiana</td>
+<td align="left">18035</td>
+<td align="left">Delaware</td>
+</tr>
+<tr class="odd">
+<td align="left">Indiana</td>
+<td align="left">18039</td>
+<td align="left">Elkhart</td>
+</tr>
+<tr class="even">
+<td align="left">Indiana</td>
+<td align="left">18081</td>
+<td align="left">Johnson</td>
+</tr>
+<tr class="odd">
+<td align="left">Indiana</td>
+<td align="left">18089</td>
+<td align="left">Lake</td>
+</tr>
+<tr class="even">
+<td align="left">Indiana</td>
+<td align="left">18091</td>
+<td align="left">La Porte</td>
+</tr>
+<tr class="odd">
+<td align="left">Indiana</td>
+<td align="left">18097</td>
+<td align="left">Marion</td>
+</tr>
+<tr class="even">
+<td align="left">Indiana</td>
+<td align="left">18105</td>
+<td align="left">Monroe</td>
+</tr>
+<tr class="odd">
+<td align="left">Indiana</td>
+<td align="left">18127</td>
+<td align="left">Porter</td>
+</tr>
+<tr class="even">
+<td align="left">Indiana</td>
+<td align="left">18141</td>
+<td align="left">St Joseph</td>
+</tr>
+<tr class="odd">
+<td align="left">Iowa</td>
+<td align="left">19013</td>
+<td align="left">Black Hawk</td>
+</tr>
+<tr class="even">
+<td align="left">Iowa</td>
+<td align="left">19103</td>
+<td align="left">Johnson</td>
+</tr>
+<tr class="odd">
+<td align="left">Iowa</td>
+<td align="left">19113</td>
+<td align="left">Linn</td>
+</tr>
+<tr class="even">
+<td align="left">Iowa</td>
+<td align="left">19163</td>
+<td align="left">Scott</td>
+</tr>
+<tr class="odd">
+<td align="left">Kansas</td>
+<td align="left">20091</td>
+<td align="left">Johnson</td>
+</tr>
+<tr class="even">
+<td align="left">Kansas</td>
+<td align="left">20209</td>
+<td align="left">Wyandotte</td>
+</tr>
+<tr class="odd">
+<td align="left">Kentucky</td>
+<td align="left">21067</td>
+<td align="left">Fayette</td>
+</tr>
+<tr class="even">
+<td align="left">Kentucky</td>
+<td align="left">21111</td>
+<td align="left">Jefferson</td>
+</tr>
+<tr class="odd">
+<td align="left">Kentucky</td>
+<td align="left">21117</td>
+<td align="left">Kenton</td>
+</tr>
+<tr class="even">
+<td align="left">Louisiana</td>
+<td align="left">22017</td>
+<td align="left">Caddo</td>
+</tr>
+<tr class="odd">
+<td align="left">Louisiana</td>
+<td align="left">22073</td>
+<td align="left">Ouachita</td>
+</tr>
+<tr class="even">
+<td align="left">Louisiana</td>
+<td align="left">22109</td>
+<td align="left">Terrebonne</td>
+</tr>
+<tr class="odd">
+<td align="left">Maine</td>
+<td align="left">23001</td>
+<td align="left">Androscoggin</td>
+</tr>
+<tr class="even">
+<td align="left">Maine</td>
+<td align="left">23011</td>
+<td align="left">Kennebec</td>
+</tr>
+<tr class="odd">
+<td align="left">Maryland</td>
+<td align="left">24003</td>
+<td align="left">Anne Arundel</td>
+</tr>
+<tr class="even">
+<td align="left">Maryland</td>
+<td align="left">24005</td>
+<td align="left">Baltimore</td>
+</tr>
+<tr class="odd">
+<td align="left">Maryland</td>
+<td align="left">24013</td>
+<td align="left">Carroll</td>
+</tr>
+<tr class="even">
+<td align="left">Maryland</td>
+<td align="left">24017</td>
+<td align="left">Charles</td>
+</tr>
+<tr class="odd">
+<td align="left">Maryland</td>
+<td align="left">24021</td>
+<td align="left">Frederick</td>
+</tr>
+<tr class="even">
+<td align="left">Maryland</td>
+<td align="left">24025</td>
+<td align="left">Harford</td>
+</tr>
+<tr class="odd">
+<td align="left">Maryland</td>
+<td align="left">24027</td>
+<td align="left">Howard</td>
+</tr>
+<tr class="even">
+<td align="left">Maryland</td>
+<td align="left">24031</td>
+<td align="left">Montgomery</td>
+</tr>
+<tr class="odd">
+<td align="left">Maryland</td>
+<td align="left">24033</td>
+<td align="left">Prince Georges</td>
+</tr>
+<tr class="even">
+<td align="left">Maryland</td>
+<td align="left">24043</td>
+<td align="left">Washington</td>
+</tr>
+<tr class="odd">
+<td align="left">Maryland</td>
+<td align="left">24510</td>
+<td align="left">Baltimore City</td>
+</tr>
+<tr class="even">
+<td align="left">Massachusetts</td>
+<td align="left">25025</td>
+<td align="left">Suffolk</td>
+</tr>
+<tr class="odd">
+<td align="left">Michigan</td>
+<td align="left">26021</td>
+<td align="left">Berrien</td>
+</tr>
+<tr class="even">
+<td align="left">Michigan</td>
+<td align="left">26075</td>
+<td align="left">Jackson</td>
+</tr>
+<tr class="odd">
+<td align="left">Michigan</td>
+<td align="left">26081</td>
+<td align="left">Kent</td>
+</tr>
+<tr class="even">
+<td align="left">Michigan</td>
+<td align="left">26093</td>
+<td align="left">Livingston</td>
+</tr>
+<tr class="odd">
+<td align="left">Michigan</td>
+<td align="left">26099</td>
+<td align="left">Macomb</td>
+</tr>
+<tr class="even">
+<td align="left">Michigan</td>
+<td align="left">26115</td>
+<td align="left">Monroe</td>
+</tr>
+<tr class="odd">
+<td align="left">Michigan</td>
+<td align="left">26121</td>
+<td align="left">Muskegon</td>
+</tr>
+<tr class="even">
+<td align="left">Michigan</td>
+<td align="left">26125</td>
+<td align="left">Oakland</td>
+</tr>
+<tr class="odd">
+<td align="left">Michigan</td>
+<td align="left">26139</td>
+<td align="left">Ottawa</td>
+</tr>
+<tr class="even">
+<td align="left">Michigan</td>
+<td align="left">26145</td>
+<td align="left">Saginaw</td>
+</tr>
+<tr class="odd">
+<td align="left">Michigan</td>
+<td align="left">26161</td>
+<td align="left">Washtenaw</td>
+</tr>
+<tr class="even">
+<td align="left">Michigan</td>
+<td align="left">26163</td>
+<td align="left">Wayne</td>
+</tr>
+<tr class="odd">
+<td align="left">Minnesota</td>
+<td align="left">27003</td>
+<td align="left">Anoka</td>
+</tr>
+<tr class="even">
+<td align="left">Minnesota</td>
+<td align="left">27037</td>
+<td align="left">Dakota</td>
+</tr>
+<tr class="odd">
+<td align="left">Minnesota</td>
+<td align="left">27053</td>
+<td align="left">Hennepin</td>
+</tr>
+<tr class="even">
+<td align="left">Minnesota</td>
+<td align="left">27109</td>
+<td align="left">Olmsted</td>
+</tr>
+<tr class="odd">
+<td align="left">Minnesota</td>
+<td align="left">27123</td>
+<td align="left">Ramsey</td>
+</tr>
+<tr class="even">
+<td align="left">Minnesota</td>
+<td align="left">27163</td>
+<td align="left">Washington</td>
+</tr>
+<tr class="odd">
+<td align="left">Mississippi</td>
+<td align="left">28033</td>
+<td align="left">De Soto</td>
+</tr>
+<tr class="even">
+<td align="left">Mississippi</td>
+<td align="left">28047</td>
+<td align="left">Harrison</td>
+</tr>
+<tr class="odd">
+<td align="left">Mississippi</td>
+<td align="left">28059</td>
+<td align="left">Jackson</td>
+</tr>
+<tr class="even">
+<td align="left">Missouri</td>
+<td align="left">29019</td>
+<td align="left">Boone</td>
+</tr>
+<tr class="odd">
+<td align="left">Missouri</td>
+<td align="left">29099</td>
+<td align="left">Jefferson</td>
+</tr>
+<tr class="even">
+<td align="left">Missouri</td>
+<td align="left">29183</td>
+<td align="left">St Charles</td>
+</tr>
+<tr class="odd">
+<td align="left">Missouri</td>
+<td align="left">29189</td>
+<td align="left">St Louis</td>
+</tr>
+<tr class="even">
+<td align="left">Missouri</td>
+<td align="left">29510</td>
+<td align="left">St Louis City</td>
+</tr>
+<tr class="odd">
+<td align="left">Nebraska</td>
+<td align="left">31055</td>
+<td align="left">Douglas</td>
+</tr>
+<tr class="even">
+<td align="left">Nebraska</td>
+<td align="left">31109</td>
+<td align="left">Lancaster</td>
+</tr>
+<tr class="odd">
+<td align="left">Nevada</td>
+<td align="left">32003</td>
+<td align="left">Clark</td>
+</tr>
+<tr class="even">
+<td align="left">Nevada</td>
+<td align="left">32031</td>
+<td align="left">Washoe</td>
+</tr>
+<tr class="odd">
+<td align="left">New Jersey</td>
+<td align="left">34003</td>
+<td align="left">Bergen</td>
+</tr>
+<tr class="even">
+<td align="left">New Jersey</td>
+<td align="left">34005</td>
+<td align="left">Burlington</td>
+</tr>
+<tr class="odd">
+<td align="left">New Jersey</td>
+<td align="left">34007</td>
+<td align="left">Camden</td>
+</tr>
+<tr class="even">
+<td align="left">New Jersey</td>
+<td align="left">34013</td>
+<td align="left">Essex</td>
+</tr>
+<tr class="odd">
+<td align="left">New Jersey</td>
+<td align="left">34017</td>
+<td align="left">Hudson</td>
+</tr>
+<tr class="even">
+<td align="left">New Jersey</td>
+<td align="left">34019</td>
+<td align="left">Hunterdon</td>
+</tr>
+<tr class="odd">
+<td align="left">New Jersey</td>
+<td align="left">34021</td>
+<td align="left">Mercer</td>
+</tr>
+<tr class="even">
+<td align="left">New Jersey</td>
+<td align="left">34023</td>
+<td align="left">Middlesex</td>
+</tr>
+<tr class="odd">
+<td align="left">New Jersey</td>
+<td align="left">34025</td>
+<td align="left">Monmouth</td>
+</tr>
+<tr class="even">
+<td align="left">New Jersey</td>
+<td align="left">34027</td>
+<td align="left">Morris</td>
+</tr>
+<tr class="odd">
+<td align="left">New Jersey</td>
+<td align="left">34029</td>
+<td align="left">Ocean</td>
+</tr>
+<tr class="even">
+<td align="left">New Jersey</td>
+<td align="left">34031</td>
+<td align="left">Passaic</td>
+</tr>
+<tr class="odd">
+<td align="left">New Jersey</td>
+<td align="left">34035</td>
+<td align="left">Somerset</td>
+</tr>
+<tr class="even">
+<td align="left">New Jersey</td>
+<td align="left">34037</td>
+<td align="left">Sussex</td>
+</tr>
+<tr class="odd">
+<td align="left">New Jersey</td>
+<td align="left">34039</td>
+<td align="left">Union</td>
+</tr>
+<tr class="even">
+<td align="left">New Jersey</td>
+<td align="left">34041</td>
+<td align="left">Warren</td>
+</tr>
+<tr class="odd">
+<td align="left">New Mexico</td>
+<td align="left">35013</td>
+<td align="left">Dona Ana</td>
+</tr>
+<tr class="even">
+<td align="left">New York</td>
+<td align="left">36001</td>
+<td align="left">Albany</td>
+</tr>
+<tr class="odd">
+<td align="left">New York</td>
+<td align="left">36005</td>
+<td align="left">Bronx</td>
+</tr>
+<tr class="even">
+<td align="left">New York</td>
+<td align="left">36013</td>
+<td align="left">Chautauqua</td>
+</tr>
+<tr class="odd">
+<td align="left">New York</td>
+<td align="left">36027</td>
+<td align="left">Dutchess</td>
+</tr>
+<tr class="even">
+<td align="left">New York</td>
+<td align="left">36029</td>
+<td align="left">Erie</td>
+</tr>
+<tr class="odd">
+<td align="left">New York</td>
+<td align="left">36047</td>
+<td align="left">Kings</td>
+</tr>
+<tr class="even">
+<td align="left">New York</td>
+<td align="left">36059</td>
+<td align="left">Nassau</td>
+</tr>
+<tr class="odd">
+<td align="left">New York</td>
+<td align="left">36061</td>
+<td align="left">New York</td>
+</tr>
+<tr class="even">
+<td align="left">New York</td>
+<td align="left">36063</td>
+<td align="left">Niagara</td>
+</tr>
+<tr class="odd">
+<td align="left">New York</td>
+<td align="left">36071</td>
+<td align="left">Orange</td>
+</tr>
+<tr class="even">
+<td align="left">New York</td>
+<td align="left">36075</td>
+<td align="left">Oswego</td>
+</tr>
+<tr class="odd">
+<td align="left">New York</td>
+<td align="left">36081</td>
+<td align="left">Queens</td>
+</tr>
+<tr class="even">
+<td align="left">New York</td>
+<td align="left">36083</td>
+<td align="left">Rensselaer</td>
+</tr>
+<tr class="odd">
+<td align="left">New York</td>
+<td align="left">36085</td>
+<td align="left">Richmond</td>
+</tr>
+<tr class="even">
+<td align="left">New York</td>
+<td align="left">36087</td>
+<td align="left">Rockland</td>
+</tr>
+<tr class="odd">
+<td align="left">New York</td>
+<td align="left">36089</td>
+<td align="left">St Lawrence</td>
+</tr>
+<tr class="even">
+<td align="left">New York</td>
+<td align="left">36091</td>
+<td align="left">Saratoga</td>
+</tr>
+<tr class="odd">
+<td align="left">New York</td>
+<td align="left">36093</td>
+<td align="left">Schenectady</td>
+</tr>
+<tr class="even">
+<td align="left">New York</td>
+<td align="left">36103</td>
+<td align="left">Suffolk</td>
+</tr>
+<tr class="odd">
+<td align="left">North Carolina</td>
+<td align="left">37001</td>
+<td align="left">Alamance</td>
+</tr>
+<tr class="even">
+<td align="left">North Carolina</td>
+<td align="left">37035</td>
+<td align="left">Catawba</td>
+</tr>
+<tr class="odd">
+<td align="left">North Carolina</td>
+<td align="left">37051</td>
+<td align="left">Cumberland</td>
+</tr>
+<tr class="even">
+<td align="left">North Carolina</td>
+<td align="left">37057</td>
+<td align="left">Davidson</td>
+</tr>
+<tr class="odd">
+<td align="left">North Carolina</td>
+<td align="left">37067</td>
+<td align="left">Forsyth</td>
+</tr>
+<tr class="even">
+<td align="left">North Carolina</td>
+<td align="left">37081</td>
+<td align="left">Guilford</td>
+</tr>
+<tr class="odd">
+<td align="left">North Carolina</td>
+<td align="left">37119</td>
+<td align="left">Mecklenburg</td>
+</tr>
+<tr class="even">
+<td align="left">North Carolina</td>
+<td align="left">37147</td>
+<td align="left">Pitt</td>
+</tr>
+<tr class="odd">
+<td align="left">North Carolina</td>
+<td align="left">37151</td>
+<td align="left">Randolph</td>
+</tr>
+<tr class="even">
+<td align="left">North Carolina</td>
+<td align="left">37159</td>
+<td align="left">Rowan</td>
+</tr>
+<tr class="odd">
+<td align="left">North Carolina</td>
+<td align="left">37191</td>
+<td align="left">Wayne</td>
+</tr>
+<tr class="even">
+<td align="left">North Dakota</td>
+<td align="left">38017</td>
+<td align="left">Cass</td>
+</tr>
+<tr class="odd">
+<td align="left">Ohio</td>
+<td align="left">39007</td>
+<td align="left">Ashtabula</td>
+</tr>
+<tr class="even">
+<td align="left">Ohio</td>
+<td align="left">39017</td>
+<td align="left">Butler</td>
+</tr>
+<tr class="odd">
+<td align="left">Ohio</td>
+<td align="left">39029</td>
+<td align="left">Columbiana</td>
+</tr>
+<tr class="even">
+<td align="left">Ohio</td>
+<td align="left">39035</td>
+<td align="left">Cuyahoga</td>
+</tr>
+<tr class="odd">
+<td align="left">Ohio</td>
+<td align="left">39041</td>
+<td align="left">Delaware</td>
+</tr>
+<tr class="even">
+<td align="left">Ohio</td>
+<td align="left">39045</td>
+<td align="left">Fairfield</td>
+</tr>
+<tr class="odd">
+<td align="left">Ohio</td>
+<td align="left">39049</td>
+<td align="left">Franklin</td>
+</tr>
+<tr class="even">
+<td align="left">Ohio</td>
+<td align="left">39057</td>
+<td align="left">Greene</td>
+</tr>
+<tr class="odd">
+<td align="left">Ohio</td>
+<td align="left">39061</td>
+<td align="left">Hamilton</td>
+</tr>
+<tr class="even">
+<td align="left">Ohio</td>
+<td align="left">39089</td>
+<td align="left">Licking</td>
+</tr>
+<tr class="odd">
+<td align="left">Ohio</td>
+<td align="left">39093</td>
+<td align="left">Lorain</td>
+</tr>
+<tr class="even">
+<td align="left">Ohio</td>
+<td align="left">39103</td>
+<td align="left">Medina</td>
+</tr>
+<tr class="odd">
+<td align="left">Ohio</td>
+<td align="left">39113</td>
+<td align="left">Montgomery</td>
+</tr>
+<tr class="even">
+<td align="left">Ohio</td>
+<td align="left">39133</td>
+<td align="left">Portage</td>
+</tr>
+<tr class="odd">
+<td align="left">Ohio</td>
+<td align="left">39139</td>
+<td align="left">Richland</td>
+</tr>
+<tr class="even">
+<td align="left">Ohio</td>
+<td align="left">39153</td>
+<td align="left">Summit</td>
+</tr>
+<tr class="odd">
+<td align="left">Ohio</td>
+<td align="left">39165</td>
+<td align="left">Warren</td>
+</tr>
+<tr class="even">
+<td align="left">Ohio</td>
+<td align="left">39169</td>
+<td align="left">Wayne</td>
+</tr>
+<tr class="odd">
+<td align="left">Oregon</td>
+<td align="left">41017</td>
+<td align="left">Deschutes</td>
+</tr>
+<tr class="even">
+<td align="left">Oregon</td>
+<td align="left">41019</td>
+<td align="left">Douglas</td>
+</tr>
+<tr class="odd">
+<td align="left">Oregon</td>
+<td align="left">41029</td>
+<td align="left">Jackson</td>
+</tr>
+<tr class="even">
+<td align="left">Oregon</td>
+<td align="left">41039</td>
+<td align="left">Lane</td>
+</tr>
+<tr class="odd">
+<td align="left">Oregon</td>
+<td align="left">41047</td>
+<td align="left">Marion</td>
+</tr>
+<tr class="even">
+<td align="left">Pennsylvania</td>
+<td align="left">42003</td>
+<td align="left">Allegheny</td>
+</tr>
+<tr class="odd">
+<td align="left">Pennsylvania</td>
+<td align="left">42011</td>
+<td align="left">Berks</td>
+</tr>
+<tr class="even">
+<td align="left">Pennsylvania</td>
+<td align="left">42017</td>
+<td align="left">Bucks</td>
+</tr>
+<tr class="odd">
+<td align="left">Pennsylvania</td>
+<td align="left">42019</td>
+<td align="left">Butler</td>
+</tr>
+<tr class="even">
+<td align="left">Pennsylvania</td>
+<td align="left">42027</td>
+<td align="left">Centre</td>
+</tr>
+<tr class="odd">
+<td align="left">Pennsylvania</td>
+<td align="left">42029</td>
+<td align="left">Chester</td>
+</tr>
+<tr class="even">
+<td align="left">Pennsylvania</td>
+<td align="left">42043</td>
+<td align="left">Dauphin</td>
+</tr>
+<tr class="odd">
+<td align="left">Pennsylvania</td>
+<td align="left">42045</td>
+<td align="left">Delaware</td>
+</tr>
+<tr class="even">
+<td align="left">Pennsylvania</td>
+<td align="left">42049</td>
+<td align="left">Erie</td>
+</tr>
+<tr class="odd">
+<td align="left">Pennsylvania</td>
+<td align="left">42051</td>
+<td align="left">Fayette</td>
+</tr>
+<tr class="even">
+<td align="left">Pennsylvania</td>
+<td align="left">42071</td>
+<td align="left">Lancaster</td>
+</tr>
+<tr class="odd">
+<td align="left">Pennsylvania</td>
+<td align="left">42075</td>
+<td align="left">Lebanon</td>
+</tr>
+<tr class="even">
+<td align="left">Pennsylvania</td>
+<td align="left">42085</td>
+<td align="left">Mercer</td>
+</tr>
+<tr class="odd">
+<td align="left">Pennsylvania</td>
+<td align="left">42089</td>
+<td align="left">Monroe</td>
+</tr>
+<tr class="even">
+<td align="left">Pennsylvania</td>
+<td align="left">42091</td>
+<td align="left">Montgomery</td>
+</tr>
+<tr class="odd">
+<td align="left">Pennsylvania</td>
+<td align="left">42101</td>
+<td align="left">Philadelphia</td>
+</tr>
+<tr class="even">
+<td align="left">Pennsylvania</td>
+<td align="left">42107</td>
+<td align="left">Schuylkill</td>
+</tr>
+<tr class="odd">
+<td align="left">Pennsylvania</td>
+<td align="left">42129</td>
+<td align="left">Westmoreland</td>
+</tr>
+<tr class="even">
+<td align="left">Pennsylvania</td>
+<td align="left">42133</td>
+<td align="left">York</td>
+</tr>
+<tr class="odd">
+<td align="left">Rhode Island</td>
+<td align="left">44003</td>
+<td align="left">Kent</td>
+</tr>
+<tr class="even">
+<td align="left">Rhode Island</td>
+<td align="left">44007</td>
+<td align="left">Providence</td>
+</tr>
+<tr class="odd">
+<td align="left">Rhode Island</td>
+<td align="left">44009</td>
+<td align="left">Washington</td>
+</tr>
+<tr class="even">
+<td align="left">South Carolina</td>
+<td align="left">45007</td>
+<td align="left">Anderson</td>
+</tr>
+<tr class="odd">
+<td align="left">South Carolina</td>
+<td align="left">45051</td>
+<td align="left">Horry</td>
+</tr>
+<tr class="even">
+<td align="left">South Carolina</td>
+<td align="left">45083</td>
+<td align="left">Spartanburg</td>
+</tr>
+<tr class="odd">
+<td align="left">South Carolina</td>
+<td align="left">45091</td>
+<td align="left">York</td>
+</tr>
+<tr class="even">
+<td align="left">Tennessee</td>
+<td align="left">47009</td>
+<td align="left">Blount</td>
+</tr>
+<tr class="odd">
+<td align="left">Tennessee</td>
+<td align="left">47037</td>
+<td align="left">Davidson</td>
+</tr>
+<tr class="even">
+<td align="left">Tennessee</td>
+<td align="left">47149</td>
+<td align="left">Rutherford</td>
+</tr>
+<tr class="odd">
+<td align="left">Tennessee</td>
+<td align="left">47157</td>
+<td align="left">Shelby</td>
+</tr>
+<tr class="even">
+<td align="left">Tennessee</td>
+<td align="left">47179</td>
+<td align="left">Washington</td>
+</tr>
+<tr class="odd">
+<td align="left">Tennessee</td>
+<td align="left">47187</td>
+<td align="left">Williamson</td>
+</tr>
+<tr class="even">
+<td align="left">Texas</td>
+<td align="left">48029</td>
+<td align="left">Bexar</td>
+</tr>
+<tr class="odd">
+<td align="left">Texas</td>
+<td align="left">48039</td>
+<td align="left">Brazoria</td>
+</tr>
+<tr class="even">
+<td align="left">Texas</td>
+<td align="left">48041</td>
+<td align="left">Brazos</td>
+</tr>
+<tr class="odd">
+<td align="left">Texas</td>
+<td align="left">48061</td>
+<td align="left">Cameron</td>
+</tr>
+<tr class="even">
+<td align="left">Texas</td>
+<td align="left">48085</td>
+<td align="left">Collin</td>
+</tr>
+<tr class="odd">
+<td align="left">Texas</td>
+<td align="left">48113</td>
+<td align="left">Dallas</td>
+</tr>
+<tr class="even">
+<td align="left">Texas</td>
+<td align="left">48121</td>
+<td align="left">Denton</td>
+</tr>
+<tr class="odd">
+<td align="left">Texas</td>
+<td align="left">48135</td>
+<td align="left">Ector</td>
+</tr>
+<tr class="even">
+<td align="left">Texas</td>
+<td align="left">48139</td>
+<td align="left">Ellis</td>
+</tr>
+<tr class="odd">
+<td align="left">Texas</td>
+<td align="left">48141</td>
+<td align="left">El Paso</td>
+</tr>
+<tr class="even">
+<td align="left">Texas</td>
+<td align="left">48157</td>
+<td align="left">Fort Bend</td>
+</tr>
+<tr class="odd">
+<td align="left">Texas</td>
+<td align="left">48167</td>
+<td align="left">Galveston</td>
+</tr>
+<tr class="even">
+<td align="left">Texas</td>
+<td align="left">48201</td>
+<td align="left">Harris</td>
+</tr>
+<tr class="odd">
+<td align="left">Texas</td>
+<td align="left">48215</td>
+<td align="left">Hidalgo</td>
+</tr>
+<tr class="even">
+<td align="left">Texas</td>
+<td align="left">48245</td>
+<td align="left">Jefferson</td>
+</tr>
+<tr class="odd">
+<td align="left">Texas</td>
+<td align="left">48251</td>
+<td align="left">Johnson</td>
+</tr>
+<tr class="even">
+<td align="left">Texas</td>
+<td align="left">48303</td>
+<td align="left">Lubbock</td>
+</tr>
+<tr class="odd">
+<td align="left">Texas</td>
+<td align="left">48309</td>
+<td align="left">McLennan</td>
+</tr>
+<tr class="even">
+<td align="left">Texas</td>
+<td align="left">48329</td>
+<td align="left">Midland</td>
+</tr>
+<tr class="odd">
+<td align="left">Texas</td>
+<td align="left">48375</td>
+<td align="left">Potter</td>
+</tr>
+<tr class="even">
+<td align="left">Texas</td>
+<td align="left">48381</td>
+<td align="left">Randall</td>
+</tr>
+<tr class="odd">
+<td align="left">Texas</td>
+<td align="left">48423</td>
+<td align="left">Smith</td>
+</tr>
+<tr class="even">
+<td align="left">Texas</td>
+<td align="left">48441</td>
+<td align="left">Taylor</td>
+</tr>
+<tr class="odd">
+<td align="left">Texas</td>
+<td align="left">48479</td>
+<td align="left">Webb</td>
+</tr>
+<tr class="even">
+<td align="left">Texas</td>
+<td align="left">48485</td>
+<td align="left">Wichita</td>
+</tr>
+<tr class="odd">
+<td align="left">Texas</td>
+<td align="left">48491</td>
+<td align="left">Williamson</td>
+</tr>
+<tr class="even">
+<td align="left">Utah</td>
+<td align="left">49011</td>
+<td align="left">Davis</td>
+</tr>
+<tr class="odd">
+<td align="left">Utah</td>
+<td align="left">49035</td>
+<td align="left">Salt Lake</td>
+</tr>
+<tr class="even">
+<td align="left">Utah</td>
+<td align="left">49049</td>
+<td align="left">Utah</td>
+</tr>
+<tr class="odd">
+<td align="left">Utah</td>
+<td align="left">49057</td>
+<td align="left">Weber</td>
+</tr>
+<tr class="even">
+<td align="left">Virginia</td>
+<td align="left">51013</td>
+<td align="left">Arlington/Alexandria</td>
+</tr>
+<tr class="odd">
+<td align="left">Virginia</td>
+<td align="left">51041</td>
+<td align="left">Chesterfield</td>
+</tr>
+<tr class="even">
+<td align="left">Virginia</td>
+<td align="left">51087</td>
+<td align="left">Henrico</td>
+</tr>
+<tr class="odd">
+<td align="left">Virginia</td>
+<td align="left">51510</td>
+<td align="left">Alexandria City</td>
+</tr>
+<tr class="even">
+<td align="left">Virginia</td>
+<td align="left">51550</td>
+<td align="left">Chesapeake City</td>
+</tr>
+<tr class="odd">
+<td align="left">Virginia</td>
+<td align="left">51650</td>
+<td align="left">Hampton</td>
+</tr>
+<tr class="even">
+<td align="left">Virginia</td>
+<td align="left">51700</td>
+<td align="left">Newport News</td>
+</tr>
+<tr class="odd">
+<td align="left">Virginia</td>
+<td align="left">51760</td>
+<td align="left">Richmond City</td>
+</tr>
+<tr class="even">
+<td align="left">Virginia</td>
+<td align="left">51810</td>
+<td align="left">Virginia Beach City</td>
+</tr>
+<tr class="odd">
+<td align="left">Washington</td>
+<td align="left">53011</td>
+<td align="left">Clark</td>
+</tr>
+<tr class="even">
+<td align="left">Washington</td>
+<td align="left">53033</td>
+<td align="left">King</td>
+</tr>
+<tr class="odd">
+<td align="left">Washington</td>
+<td align="left">53035</td>
+<td align="left">Kitsap</td>
+</tr>
+<tr class="even">
+<td align="left">Washington</td>
+<td align="left">53053</td>
+<td align="left">Pierce</td>
+</tr>
+<tr class="odd">
+<td align="left">Washington</td>
+<td align="left">53061</td>
+<td align="left">Snohomish</td>
+</tr>
+<tr class="even">
+<td align="left">Washington</td>
+<td align="left">53063</td>
+<td align="left">Spokane</td>
+</tr>
+<tr class="odd">
+<td align="left">Washington</td>
+<td align="left">53067</td>
+<td align="left">Thurston</td>
+</tr>
+<tr class="even">
+<td align="left">Washington</td>
+<td align="left">53073</td>
+<td align="left">Whatcom</td>
+</tr>
+<tr class="odd">
+<td align="left">Washington</td>
+<td align="left">53077</td>
+<td align="left">Yakima</td>
+</tr>
+<tr class="even">
+<td align="left">Wisconsin</td>
+<td align="left">55009</td>
+<td align="left">Brown</td>
+</tr>
+<tr class="odd">
+<td align="left">Wisconsin</td>
+<td align="left">55025</td>
+<td align="left">Dane</td>
+</tr>
+<tr class="even">
+<td align="left">Wisconsin</td>
+<td align="left">55059</td>
+<td align="left">Kenosha</td>
+</tr>
+<tr class="odd">
+<td align="left">Wisconsin</td>
+<td align="left">55063</td>
+<td align="left">La Crosse</td>
+</tr>
+<tr class="even">
+<td align="left">Wisconsin</td>
+<td align="left">55073</td>
+<td align="left">Marathon</td>
+</tr>
+<tr class="odd">
+<td align="left">Wisconsin</td>
+<td align="left">55101</td>
+<td align="left">Racine</td>
+</tr>
+<tr class="even">
+<td align="left">Wisconsin</td>
+<td align="left">55105</td>
+<td align="left">Rock</td>
+</tr>
+<tr class="odd">
+<td align="left">Wisconsin</td>
+<td align="left">55117</td>
+<td align="left">Sheboygan</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="census-region-and-division-codes" class="section level2">
 <h2 class="hasAnchor">

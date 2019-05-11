@@ -168,27 +168,348 @@ fips::county
 
 ``` r
 fips::county_ipums_usa %>% 
-    select(countyfip, 
+    select(state, countyfip, county_name,
            `2000 5% & 1% unwt, acs 2005`,
            `acs 2006-2011`, 
            `2010 10%, acs 2012-onward`) %>% 
     na.omit() %>% 
-    select(countyfip)
-#> # A tibble: 331 x 1
-#>    countyfip
-#>    <chr>    
-#>  1 01003    
-#>  2 01015    
-#>  3 01055    
-#>  4 01073    
-#>  5 01081    
-#>  6 01097    
-#>  7 01117    
-#>  8 02020    
-#>  9 04005    
-#> 10 04013    
-#> # … with 321 more rows
+    select(state, countyfip, county_name) %>% 
+    knitr::kable()
 ```
+
+| state                | countyfip | county\_name         |
+| :------------------- | :-------- | :------------------- |
+| Alabama              | 01003     | Baldwin              |
+| Alabama              | 01015     | Calhoun/Benton       |
+| Alabama              | 01055     | Etowah               |
+| Alabama              | 01073     | Jefferson            |
+| Alabama              | 01081     | Lee                  |
+| Alabama              | 01097     | Mobile               |
+| Alabama              | 01117     | Shelby               |
+| Alaska               | 02020     | Anchorage            |
+| Arizona              | 04005     | Coconino             |
+| Arizona              | 04013     | Maricopa             |
+| Arizona              | 04019     | Pima                 |
+| Arizona              | 04025     | Yavapai              |
+| Arizona              | 04027     | Yuma                 |
+| Arkansas             | 05007     | Benton               |
+| Arkansas             | 05119     | Pulaski              |
+| Arkansas             | 05143     | Washington           |
+| California           | 06001     | Alameda              |
+| California           | 06007     | Butte                |
+| California           | 06013     | Contra Costa         |
+| California           | 06017     | El Dorado            |
+| California           | 06019     | Fresno               |
+| California           | 06023     | Humboldt             |
+| California           | 06025     | Imperial             |
+| California           | 06029     | Kern                 |
+| California           | 06031     | Kings                |
+| California           | 06037     | Los Angeles          |
+| California           | 06039     | Madera               |
+| California           | 06041     | Marin                |
+| California           | 06047     | Merced               |
+| California           | 06055     | Napa                 |
+| California           | 06059     | Orange               |
+| California           | 06061     | Placer               |
+| California           | 06065     | Riverside            |
+| California           | 06067     | Sacramento           |
+| California           | 06071     | San Bernardino       |
+| California           | 06073     | San Diego            |
+| California           | 06075     | San Francisco        |
+| California           | 06077     | San Joaquin          |
+| California           | 06079     | San Luis Obispo      |
+| California           | 06081     | San Mateo            |
+| California           | 06083     | Santa Barbara        |
+| California           | 06085     | Santa Clara          |
+| California           | 06087     | Santa Cruz           |
+| California           | 06089     | Shasta               |
+| California           | 06095     | Solano               |
+| California           | 06097     | Sonoma               |
+| California           | 06099     | Stanislaus           |
+| California           | 06107     | Tulare               |
+| California           | 06111     | Ventura              |
+| California           | 06113     | Yolo                 |
+| Connecticut          | 09001     | Fairfield            |
+| Connecticut          | 09003     | Hartford             |
+| Connecticut          | 09005     | Litchfield           |
+| Connecticut          | 09007     | Middlesex            |
+| Connecticut          | 09009     | New Haven            |
+| Connecticut          | 09011     | New London           |
+| Connecticut          | 09013     | Tolland              |
+| Connecticut          | 09015     | Windham              |
+| Delaware             | 10001     | Kent                 |
+| Delaware             | 10003     | New Castle           |
+| Delaware             | 10005     | Sussex               |
+| District of Columbia | 11001     | District of Columbia |
+| Florida              | 12001     | Alachua              |
+| Florida              | 12009     | Brevard/St Lucie     |
+| Florida              | 12011     | Broward              |
+| Florida              | 12015     | Charlotte            |
+| Florida              | 12019     | Clay                 |
+| Florida              | 12021     | Collier              |
+| Florida              | 12033     | Escambia             |
+| Florida              | 12053     | Hernando/Benton      |
+| Florida              | 12057     | Hillsborough         |
+| Florida              | 12071     | Lee                  |
+| Florida              | 12081     | Manatee              |
+| Florida              | 12083     | Marion               |
+| Florida              | 12085     | Martin               |
+| Florida              | 12091     | Okaloosa             |
+| Florida              | 12095     | Orange/Mesquito      |
+| Florida              | 12097     | Osceola              |
+| Florida              | 12099     | Palm Beach           |
+| Florida              | 12101     | Pasco                |
+| Florida              | 12103     | Pinellas             |
+| Florida              | 12105     | Polk                 |
+| Florida              | 12111     | St Lucie             |
+| Florida              | 12113     | Santa Rosa           |
+| Florida              | 12115     | Sarasota             |
+| Florida              | 12117     | Seminole             |
+| Georgia              | 13021     | Bibb                 |
+| Georgia              | 13051     | Chatham              |
+| Georgia              | 13057     | Cherokee             |
+| Georgia              | 13063     | Clayton              |
+| Georgia              | 13067     | Cobb                 |
+| Georgia              | 13135     | Gwinnett             |
+| Georgia              | 13139     | Hall                 |
+| Georgia              | 13151     | Henry                |
+| Georgia              | 13245     | Richmond             |
+| Hawaii               | 15001     | Hawaii               |
+| Hawaii               | 15003     | Honolulu             |
+| Illinois             | 17019     | Champaign            |
+| Illinois             | 17031     | Cook                 |
+| Illinois             | 17043     | Du Page              |
+| Illinois             | 17091     | Kankakee             |
+| Illinois             | 17097     | Lake                 |
+| Illinois             | 17099     | LaSalle              |
+| Illinois             | 17113     | McLean               |
+| Illinois             | 17115     | Macon                |
+| Illinois             | 17179     | Tazewell             |
+| Indiana              | 18003     | Allen                |
+| Indiana              | 18035     | Delaware             |
+| Indiana              | 18039     | Elkhart              |
+| Indiana              | 18081     | Johnson              |
+| Indiana              | 18089     | Lake                 |
+| Indiana              | 18091     | La Porte             |
+| Indiana              | 18097     | Marion               |
+| Indiana              | 18105     | Monroe               |
+| Indiana              | 18127     | Porter               |
+| Indiana              | 18141     | St Joseph            |
+| Iowa                 | 19013     | Black Hawk           |
+| Iowa                 | 19103     | Johnson              |
+| Iowa                 | 19113     | Linn                 |
+| Iowa                 | 19163     | Scott                |
+| Kansas               | 20091     | Johnson              |
+| Kansas               | 20209     | Wyandotte            |
+| Kentucky             | 21067     | Fayette              |
+| Kentucky             | 21111     | Jefferson            |
+| Kentucky             | 21117     | Kenton               |
+| Louisiana            | 22017     | Caddo                |
+| Louisiana            | 22073     | Ouachita             |
+| Louisiana            | 22109     | Terrebonne           |
+| Maine                | 23001     | Androscoggin         |
+| Maine                | 23011     | Kennebec             |
+| Maryland             | 24003     | Anne Arundel         |
+| Maryland             | 24005     | Baltimore            |
+| Maryland             | 24013     | Carroll              |
+| Maryland             | 24017     | Charles              |
+| Maryland             | 24021     | Frederick            |
+| Maryland             | 24025     | Harford              |
+| Maryland             | 24027     | Howard               |
+| Maryland             | 24031     | Montgomery           |
+| Maryland             | 24033     | Prince Georges       |
+| Maryland             | 24043     | Washington           |
+| Maryland             | 24510     | Baltimore City       |
+| Massachusetts        | 25025     | Suffolk              |
+| Michigan             | 26021     | Berrien              |
+| Michigan             | 26075     | Jackson              |
+| Michigan             | 26081     | Kent                 |
+| Michigan             | 26093     | Livingston           |
+| Michigan             | 26099     | Macomb               |
+| Michigan             | 26115     | Monroe               |
+| Michigan             | 26121     | Muskegon             |
+| Michigan             | 26125     | Oakland              |
+| Michigan             | 26139     | Ottawa               |
+| Michigan             | 26145     | Saginaw              |
+| Michigan             | 26161     | Washtenaw            |
+| Michigan             | 26163     | Wayne                |
+| Minnesota            | 27003     | Anoka                |
+| Minnesota            | 27037     | Dakota               |
+| Minnesota            | 27053     | Hennepin             |
+| Minnesota            | 27109     | Olmsted              |
+| Minnesota            | 27123     | Ramsey               |
+| Minnesota            | 27163     | Washington           |
+| Mississippi          | 28033     | De Soto              |
+| Mississippi          | 28047     | Harrison             |
+| Mississippi          | 28059     | Jackson              |
+| Missouri             | 29019     | Boone                |
+| Missouri             | 29099     | Jefferson            |
+| Missouri             | 29183     | St Charles           |
+| Missouri             | 29189     | St Louis             |
+| Missouri             | 29510     | St Louis City        |
+| Nebraska             | 31055     | Douglas              |
+| Nebraska             | 31109     | Lancaster            |
+| Nevada               | 32003     | Clark                |
+| Nevada               | 32031     | Washoe               |
+| New Jersey           | 34003     | Bergen               |
+| New Jersey           | 34005     | Burlington           |
+| New Jersey           | 34007     | Camden               |
+| New Jersey           | 34013     | Essex                |
+| New Jersey           | 34017     | Hudson               |
+| New Jersey           | 34019     | Hunterdon            |
+| New Jersey           | 34021     | Mercer               |
+| New Jersey           | 34023     | Middlesex            |
+| New Jersey           | 34025     | Monmouth             |
+| New Jersey           | 34027     | Morris               |
+| New Jersey           | 34029     | Ocean                |
+| New Jersey           | 34031     | Passaic              |
+| New Jersey           | 34035     | Somerset             |
+| New Jersey           | 34037     | Sussex               |
+| New Jersey           | 34039     | Union                |
+| New Jersey           | 34041     | Warren               |
+| New Mexico           | 35013     | Dona Ana             |
+| New York             | 36001     | Albany               |
+| New York             | 36005     | Bronx                |
+| New York             | 36013     | Chautauqua           |
+| New York             | 36027     | Dutchess             |
+| New York             | 36029     | Erie                 |
+| New York             | 36047     | Kings                |
+| New York             | 36059     | Nassau               |
+| New York             | 36061     | New York             |
+| New York             | 36063     | Niagara              |
+| New York             | 36071     | Orange               |
+| New York             | 36075     | Oswego               |
+| New York             | 36081     | Queens               |
+| New York             | 36083     | Rensselaer           |
+| New York             | 36085     | Richmond             |
+| New York             | 36087     | Rockland             |
+| New York             | 36089     | St Lawrence          |
+| New York             | 36091     | Saratoga             |
+| New York             | 36093     | Schenectady          |
+| New York             | 36103     | Suffolk              |
+| North Carolina       | 37001     | Alamance             |
+| North Carolina       | 37035     | Catawba              |
+| North Carolina       | 37051     | Cumberland           |
+| North Carolina       | 37057     | Davidson             |
+| North Carolina       | 37067     | Forsyth              |
+| North Carolina       | 37081     | Guilford             |
+| North Carolina       | 37119     | Mecklenburg          |
+| North Carolina       | 37147     | Pitt                 |
+| North Carolina       | 37151     | Randolph             |
+| North Carolina       | 37159     | Rowan                |
+| North Carolina       | 37191     | Wayne                |
+| North Dakota         | 38017     | Cass                 |
+| Ohio                 | 39007     | Ashtabula            |
+| Ohio                 | 39017     | Butler               |
+| Ohio                 | 39029     | Columbiana           |
+| Ohio                 | 39035     | Cuyahoga             |
+| Ohio                 | 39041     | Delaware             |
+| Ohio                 | 39045     | Fairfield            |
+| Ohio                 | 39049     | Franklin             |
+| Ohio                 | 39057     | Greene               |
+| Ohio                 | 39061     | Hamilton             |
+| Ohio                 | 39089     | Licking              |
+| Ohio                 | 39093     | Lorain               |
+| Ohio                 | 39103     | Medina               |
+| Ohio                 | 39113     | Montgomery           |
+| Ohio                 | 39133     | Portage              |
+| Ohio                 | 39139     | Richland             |
+| Ohio                 | 39153     | Summit               |
+| Ohio                 | 39165     | Warren               |
+| Ohio                 | 39169     | Wayne                |
+| Oregon               | 41017     | Deschutes            |
+| Oregon               | 41019     | Douglas              |
+| Oregon               | 41029     | Jackson              |
+| Oregon               | 41039     | Lane                 |
+| Oregon               | 41047     | Marion               |
+| Pennsylvania         | 42003     | Allegheny            |
+| Pennsylvania         | 42011     | Berks                |
+| Pennsylvania         | 42017     | Bucks                |
+| Pennsylvania         | 42019     | Butler               |
+| Pennsylvania         | 42027     | Centre               |
+| Pennsylvania         | 42029     | Chester              |
+| Pennsylvania         | 42043     | Dauphin              |
+| Pennsylvania         | 42045     | Delaware             |
+| Pennsylvania         | 42049     | Erie                 |
+| Pennsylvania         | 42051     | Fayette              |
+| Pennsylvania         | 42071     | Lancaster            |
+| Pennsylvania         | 42075     | Lebanon              |
+| Pennsylvania         | 42085     | Mercer               |
+| Pennsylvania         | 42089     | Monroe               |
+| Pennsylvania         | 42091     | Montgomery           |
+| Pennsylvania         | 42101     | Philadelphia         |
+| Pennsylvania         | 42107     | Schuylkill           |
+| Pennsylvania         | 42129     | Westmoreland         |
+| Pennsylvania         | 42133     | York                 |
+| Rhode Island         | 44003     | Kent                 |
+| Rhode Island         | 44007     | Providence           |
+| Rhode Island         | 44009     | Washington           |
+| South Carolina       | 45007     | Anderson             |
+| South Carolina       | 45051     | Horry                |
+| South Carolina       | 45083     | Spartanburg          |
+| South Carolina       | 45091     | York                 |
+| Tennessee            | 47009     | Blount               |
+| Tennessee            | 47037     | Davidson             |
+| Tennessee            | 47149     | Rutherford           |
+| Tennessee            | 47157     | Shelby               |
+| Tennessee            | 47179     | Washington           |
+| Tennessee            | 47187     | Williamson           |
+| Texas                | 48029     | Bexar                |
+| Texas                | 48039     | Brazoria             |
+| Texas                | 48041     | Brazos               |
+| Texas                | 48061     | Cameron              |
+| Texas                | 48085     | Collin               |
+| Texas                | 48113     | Dallas               |
+| Texas                | 48121     | Denton               |
+| Texas                | 48135     | Ector                |
+| Texas                | 48139     | Ellis                |
+| Texas                | 48141     | El Paso              |
+| Texas                | 48157     | Fort Bend            |
+| Texas                | 48167     | Galveston            |
+| Texas                | 48201     | Harris               |
+| Texas                | 48215     | Hidalgo              |
+| Texas                | 48245     | Jefferson            |
+| Texas                | 48251     | Johnson              |
+| Texas                | 48303     | Lubbock              |
+| Texas                | 48309     | McLennan             |
+| Texas                | 48329     | Midland              |
+| Texas                | 48375     | Potter               |
+| Texas                | 48381     | Randall              |
+| Texas                | 48423     | Smith                |
+| Texas                | 48441     | Taylor               |
+| Texas                | 48479     | Webb                 |
+| Texas                | 48485     | Wichita              |
+| Texas                | 48491     | Williamson           |
+| Utah                 | 49011     | Davis                |
+| Utah                 | 49035     | Salt Lake            |
+| Utah                 | 49049     | Utah                 |
+| Utah                 | 49057     | Weber                |
+| Virginia             | 51013     | Arlington/Alexandria |
+| Virginia             | 51041     | Chesterfield         |
+| Virginia             | 51087     | Henrico              |
+| Virginia             | 51510     | Alexandria City      |
+| Virginia             | 51550     | Chesapeake City      |
+| Virginia             | 51650     | Hampton              |
+| Virginia             | 51700     | Newport News         |
+| Virginia             | 51760     | Richmond City        |
+| Virginia             | 51810     | Virginia Beach City  |
+| Washington           | 53011     | Clark                |
+| Washington           | 53033     | King                 |
+| Washington           | 53035     | Kitsap               |
+| Washington           | 53053     | Pierce               |
+| Washington           | 53061     | Snohomish            |
+| Washington           | 53063     | Spokane              |
+| Washington           | 53067     | Thurston             |
+| Washington           | 53073     | Whatcom              |
+| Washington           | 53077     | Yakima               |
+| Wisconsin            | 55009     | Brown                |
+| Wisconsin            | 55025     | Dane                 |
+| Wisconsin            | 55059     | Kenosha              |
+| Wisconsin            | 55063     | La Crosse            |
+| Wisconsin            | 55073     | Marathon             |
+| Wisconsin            | 55101     | Racine               |
+| Wisconsin            | 55105     | Rock                 |
+| Wisconsin            | 55117     | Sheboygan            |
 
 ## Census Region and Division Codes
 
