@@ -582,3 +582,9 @@ fips::nchs_urc
 ![](README-files/nchs_urc_2006-1.png)<!-- -->
 
 ![](README-files/nchs_urc_1990-1.png)<!-- -->
+
+# License and Attribution
+
+The {fips} package are available under the [Creative Commons CC0 1.0
+License](https://creativecommons.org/publicdomain/zero/1.0/), so feel
+free (literally) to use it for any purpose without any attribution.

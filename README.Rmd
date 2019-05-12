@@ -242,3 +242,7 @@ nchs_urc %>%
           legend.title=element_blank(), 
           plot.title = element_text(hjust = 0.5))
 ```
+
+# License and Attribution
+
+The {fips} package are available under the [Creative Commons CC0 1.0 License](https://creativecommons.org/publicdomain/zero/1.0/), so feel free (literally) to use it for any purpose without any attribution.
